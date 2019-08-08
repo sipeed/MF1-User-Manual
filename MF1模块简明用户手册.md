@@ -82,6 +82,10 @@
 
 适合有很好技术基础的用户使用，不需要外接其他MCU，有更高的自由度进行开发
   
+二次开发的[SDK](https://github.com/sipeed/MF1_SDK)下载链接
+
+二次开发简要使用说明请参照[README.md](https://github.com/sipeed/MF1_SDK/blob/master/src/Ai_Module_MF1_lib_test/README.md)
+  
 <div STYLE="page-break-after: always;"></div>
 
 ## **Q&A**

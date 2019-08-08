@@ -20,13 +20,13 @@
 
 | `K210` | `MCU`            | 说明                                   |
 | ------ | ---------------- | --------------------------------------|
-| `IO4`  | `uart_rx`        | `K210` 通信串口 `TX`，可设置，默认`5`   |
-| `IO5`  | `uart_tx`        | `K210` 通信串口 `RX`，可设置，默认`4`   |
-| `IO10` | `log_tx`         | `k210` 打印日志的 `TX`,可设置，默认`10` |
-| `IO11` | `log_rx`         | `k210` 打印日志的 `RX`,可设置，默认`11` |
-| `IO16` | `record key`     | `short press record` <br/>`long press to clear stored face and board cfg`<br>可设置，默认为`16` |
-| `IO22` | `relay_act_low`  | `relay output`，可设置，默认为`22`     |
-| `IO23` | `relay_act_high` | `relay output`，可设置，默认为`23`     |
+| `IO11`  | `uart_rx`        | `K210` 通信串口 `RX`，可设置，默认`11`   |
+| `IO10`  | `uart_tx`        | `K210` 通信串口 `TX`，可设置，默认`10`   |
+| `IO5` | `log_tx`         | `k210` 打印日志的 `TX`,可设置，默认`5` |
+| `IO4` | `log_rx`         | `k210` 打印日志的 `RX`,可设置，默认`4` |
+| `IO24` | `record key`     | `short press record` <br/>`long press to clear stored face and board cfg`<br>可设置，默认为`24` |
+| `IO13` | `relay_act_low`  | `relay output`，可设置，默认为`13`     |
+| `IO12` | `relay_act_high` | `relay output`，可设置，默认为`12`     |
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -483,35 +483,35 @@
 ### **设置模块引脚分配**
 
 ```json
-{"version": 1,"type": "set_brd_pin_cfg","cfg":{"get_cfg":0,"port_tx":5,"port_rx":4,"log_tx":10,"log_rx":11,"relay_low": ,"relay_high": ,"key":16,"key_dir":0}}
+{"version": 1,"type": "set_brd_pin_cfg","cfg":{"get_cfg":0,"port_tx":10,"port_rx":11,"log_tx":5,"log_rx":4,"relay_low": 12,"relay_high": 13,"key":24,"key_dir":1}}
 ```
 
 #### 说明
 
 `get_cfg`: 获取当前模块的配置
 
-`port_tx`: 本模块与其他模块通信`TX`引脚，默认为`5`
+`port_tx`: 本模块与其他模块通信`TX`引脚，默认为`10`
 
-`port_rx`: 本模块与其他模块通信`RX`引脚，默认为`4`
+`port_rx`: 本模块与其他模块通信`RX`引脚，默认为`11`
 
-`log_tx`: 本模块输出日志`TX`引脚，默认为`10`
+`log_tx`: 本模块输出日志`TX`引脚，默认为`5`
 
-`log_tx`: 本模块输出日志`RX`引脚，默认为`11`
+`log_tx`: 本模块输出日志`RX`引脚，默认为`4`
 
-`relay_low`: 继电器输出**常低**引脚，默认为`23`
+`relay_low`: 继电器输出**常低**引脚，默认为`12`
 
-`relay_high`: 继电器输出**常高**引脚，默认为`22`
+`relay_high`: 继电器输出**常高**引脚，默认为`13`
 
-`key`: 按键
+`key`: 按键，默认为`24`
 
-`key_dir`: 按键按下电平
+`key_dir`: 按键按下电平，默认为`1`
 
 > 注意，模块不会检测设置的`IO`是否相同，请自己保证参数的正确
 
 ### **设置模块引脚分配结果**
 
 ```json
-{"version":1,"type":"set_brd_pin_cfg_ret","code":0,"msg":"get uart_pin cfg success","cfg":{"port_tx":5,"port_rx":4,"log_tx":10,"log_rx":11,"relay_low":23,"relay_high":22,"key":16,"key_dir":0}}
+{"version":1,"type":"set_brd_pin_cfg_ret","code":0,"msg":"get uart_pin cfg success","cfg":{"port_tx":10,"port_rx":11,"log_tx":5,"log_rx":4,"relay_low":12,"relay_high":13,"key":24,"key_dir":1}}
 ```
 
 #### 说明
