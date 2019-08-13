@@ -84,7 +84,7 @@
   
 二次开发的[SDK](https://github.com/sipeed/MF1_SDK)下载链接
 
-二次开发简要使用说明请参照[README.md](https://github.com/sipeed/MF1_SDK/blob/master/src/Ai_Module_MF1_lib_test/README.md)
+二次开发简要使用说明请参照[MF1模块二次开发说明.md](MF1模块二次开发说明.md)
   
 <div STYLE="page-break-after: always;"></div>
 
