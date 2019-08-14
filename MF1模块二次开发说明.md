@@ -9,6 +9,7 @@
 - [工程目录说明](#工程目录说明)    
 - [工程编译](#工程编译)    
 - [下载固件](#下载固件)    
+- [升级`ESP8285`固件](#升级`ESP8285`固件)
 - [人脸识别库API说明](#人脸识别库api说明)        
     - [人脸识别API](#人脸识别api)        
     - [串口协议库API](#串口协议库api)        
@@ -85,7 +86,22 @@ cmake ../../../ && make
 
 - ④ 点击`下载`，开始下载
   
-  
+## 升级`ESP8285`固件
+
+现在（2019.08.14之前）`esp8285`出厂默认烧录的是`AT`固件，在`MF1`中使用的是`SPI`与模块进行通信，所以需要更新一下固件。
+
+**更新`esp8285`固件，需要将使能引脚打开，烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
+
+<center class="half">
+<img src="assests/update_esp8285.jpg" height = 50% width = 50% />
+</center>
+
+①：短接这个触点到`GND`然后上电
+
+②：使用这个串口进行`esp82825`的固件更新
+
+`esp8285 SPI`固件[下载地址](http://dl.sipeed.com/MAIX/HDK/factory_firmware/esp8266/WiFiSPIESP.ino.esp8285_40M_freq_1M_DOUT.bin)
+
 ## 人脸识别库API说明
 
 ### 人脸识别API
@@ -105,6 +121,8 @@ void face_lib_run(face_recognition_cfg_t *cfg);
 进行人脸识别,需要摄像头是正常的,用户可以设置一些配置信息
 
 ### 串口协议库API
+
+> 可以使用`mqtt`进行通信，但是目前无法计算图片的特征值。
 
 ```C
 uint8_t protocol_send_init_done(void);
@@ -148,7 +166,7 @@ w25qxx_status_t w25qxx_read_data(uint32_t addr, uint8_t *data_buf, uint32_t leng
 w25qxx_status_t my_w25qxx_read_data(uint32_t addr, uint8_t *data_buf, uint32_t length, w25qxx_read_t mode);
 ```
 
-对板载的16MByte FLAHS的读写API
+对板载的16MByte FLASH的读写API
 
 ### CAMERA操作API
 
@@ -483,7 +501,13 @@ uint8_t find_qrcodes(qrcode_result_t *out, qrcode_image_t *img);
 ```C
 qr_wifi_info_t *qrcode_get_wifi_cfg(void);
 ```
-扫描二维码，获取`wifi`配置信息，二维码格式`{"t":"84:0D:8E:6C:62:9C","w":"Sipeed_2.4G","p":"Sipeed123."} `
+扫描二维码，获取`wifi`配置信息，二维码格式`{"t":"84:0D:8E:6C:62:9C","w":"Sipeed_2.4G","p":"Sipeed123."}`
+
+`t`:模块的`MAC`地址，在初始化中有打印
+
+`w`:热点的名称
+
+`p`:热点的密码
 
 ```C
 uint8_t spi_8266_init_device(void);
