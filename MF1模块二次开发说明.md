@@ -531,6 +531,9 @@ qr_wifi_info_t *qrcode_get_wifi_cfg(void);
 
 `p`:热点的密码
 
+> 生成的二维码版本不能太高，以及容错级别要为`L`,建议使用[barcodegenerator](https://racoindustries.com/barcodegenerator/2d/qr-code/)来生成
+
+
 ```C
 uint8_t spi_8266_init_device(void);
 ```
