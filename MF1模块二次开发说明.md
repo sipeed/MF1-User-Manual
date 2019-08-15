@@ -110,6 +110,8 @@ cmake ../../../ && make
 <img src="assests/flash_download_tools.png" height = 50% width = 60% />
 </center>
 
+〇：注意选择`ESP8285`下载，**千万不要**选择了`ESP8266`
+
 ①：选择之前下载的固件，地址为`0`
 
 ②：选择晶振频率为`40M`
