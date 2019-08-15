@@ -102,6 +102,26 @@ cmake ../../../ && make
 
 `esp8285 SPI`固件[下载地址](http://dl.sipeed.com/MAIX/HDK/factory_firmware/esp8266/WiFiSPIESP.ino.esp8285_40M_freq_1M_DOUT.bin)
 
+`flash_download_tools`[下载地址](https://www.espressif.com/sites/default/files/tools/flash_download_tools_v3.6.6.zip)
+
+`flash_download_tools`下载选项
+
+<center class="half">
+<img src="assests/flash_download_tools.png" height = 50% width = 60% />
+</center>
+
+①：选择之前下载的固件，地址为`0`
+
+②：选择晶振频率为`40M`
+
+③：选择`flash`频率为`40M`
+
+④：选择`flash`大小为`8Mbit`
+
+⑤：选择对应的串口，**波特率建议选择为115200**
+
+⑥：点击开始下载
+
 ## 人脸识别库API说明
 
 ### 人脸识别API
