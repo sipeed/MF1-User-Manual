@@ -28,7 +28,7 @@
 <img src="assests/kflash_gui.jpg" height = 50% width = 80% />
 </center>
   
-用户可以使用`kflash_gui`来下载程序
+用户可以使用`kflash_gui`（https://github.com/sipeed/kflash_gui/releases ）来下载程序
   
 具体流程为：
 
