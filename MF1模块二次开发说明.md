@@ -38,7 +38,11 @@
 
 ## 工程目录说明
 
-本工程基于[kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)，用户只需要关心`src/Ai_Module_MF1_lib_test`目录下的文件
+本工程基于[kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
+
+！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！
+
+用户只需要关心`src/Ai_Module_MF1_lib_test`目录下的文件
 
 | | |
 |-|-|
