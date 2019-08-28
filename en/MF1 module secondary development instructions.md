@@ -1,11 +1,11 @@
 # MF1 module secondary development instructions
 
 
-- [1. Project directory description](#1. Project directory description)    
-- [2. Project compilation](#2. Project compilation)    
-- [3. Download firmware](#3. Download firmware)    
-- [4. Upgrade ESP8285 firmware](#4. Upgrade ESP8285 firmware)
-- [5. Face Recognition Library API Description](#5. Face Recognition Library API Description)        
+- [1. Project directory description](#1-Project-directory-description)    
+- [2. Project compilation](#2-Project-compilation)    
+- [3. Download firmware](#3-Download-firmware)    
+- [4. Upgrade ESP8285 firmware](#4-Upgrade-ESP8285-firmware)
+- [5. Face Recognition Library API Description](#5-Face-Recognition-Library-API-Description)        
     - [5.1 Face Recognition API](#5.1 Face Recognition API)        
     - [5.2 Serial Protocol Library API](#5.2 Serial Protocol Library API)        
     - [5.3 FLASH Read and Write API](#5.3 FLASH Read and Write API)        
