@@ -20,6 +20,7 @@
 
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 2. Hardware Resources Introduction
 
 <center class="half">
@@ -37,6 +38,7 @@
 * [Taobao purchase](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-21231188695.25.27ba52b1bsusf7&id=599138281058)
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 3. Function Introduction
 
 ### 3.1 Module Features
@@ -86,6 +88,7 @@ Secondary development of [SDK] (https://github.com/sipeed/MF1_SDK) download link
 For a brief description of the secondary development, please refer to [MF1 Module Secondary Development Instructions.md] (MF1 Module Secondary Development Instructions.md)
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 5. Q&A
 
 * Q: How to update the firmware
