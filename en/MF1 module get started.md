@@ -3,7 +3,7 @@
 - [1. Install driver](#1. Install driver)
 - [2. Download firmware](#2. Download firmware)
 - [3. Face feature recording and deletion](#3. Face feature recording and deletion)
-- [4. Serial communication protocol](#4. Serial communication protocol)
+- [4. Serial communication protocol](#4-Serial communication protocol)
 - [工程目录说明](#工程目录说明)    
 
 <div STYLE="page-break-after: always;"></div>
