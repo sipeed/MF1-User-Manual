@@ -1,15 +1,15 @@
 # MF1 Module User Manual
 
-- [1. Modify record](#1. Modify record)
-- [2. Hardware Resources Introduction](#2. Hardware Resources Introduction)
-- [3. Function Introduction](#3. Function Introduction)
-    - [3.1 Module Features](#3.1 Module Features)
-    - [3.2 Instructions for use](#3.2 Instructions for use)
-- [4. Application solution](#4. Application solution)
-    - [4.1 Serial Module](#4.1 Serial Module)
-    - [4.2 WeChat applet module](#4.2 WeChat applet module)
-    - [4.3 Secondary development](# 4.3 Secondary development)
-- [5. Q&A](#5. Q&A)
+- [1. Modify record](#1-Modify-record)
+- [2. Hardware Resources Introduction](#2-Hardware-Resources-Introduction)
+- [3. Function Introduction](#3-Function-Introduction)
+    - [3.1 Module Features](#31-Module-Features)
+    - [3.2 Instructions for use](#32-Instructions-for-use)
+- [4. Application solution](#4-Application-solution)
+    - [4.1 Serial Module](#41-Serial-Module)
+    - [4.2 WeChat applet module](#42-WeChat-applet-module)
+    - [4.3 Secondary development](#43-Secondary-development)
+- [5. Q&A](#5-Q&A)
 
 
 ## 1. Modify record
