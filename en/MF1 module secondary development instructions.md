@@ -448,25 +448,25 @@ Demo:
 
 ```C
     Uint32_t get_recv_len = http_get_file(
-        Srv_url, / / ​​request address
-        NULL, / / ​​custom request header
-        Http_header, / / ​​header returned by the server
-        Sizeof(http_header), / / ​​length
-        Http_body, / / ​​accept the cache
+        Srv_url, / /  request address
+        NULL, / /  custom request header
+        Http_header, / /  header returned by the server
+        Sizeof(http_header), / /  length
+        Http_body, / /  accept the cache
         Sizeof(http_body));//length
 ```
 
 ```C
     Uint32_t post_recv_len = http_post_file(
-        Http_upload_face, / / ​​request address
-        Send_hdr, / / ​​request header
-        NULL, / / ​​post body content
-        NULL, / / ​​split string, can be used
+        Http_upload_face, / /  request address
+        Send_hdr, / /   request header
+        NULL, / /   post body content
+        NULL, / /   split string, can be used
         Upload->jpeg_addr, //post file address
         Upload->jpeg_len, //post file length
-        Http_header, / / ​​header returned by the server
-        Sizeof(http_header), / / ​​length
-        Http_body, / / ​​accept the cache
+        Http_header, / /   header returned by the server
+        Sizeof(http_header), / /   length
+        Http_body, / /   accept the cache
         Sizeof(http_body));//length
 ```
 
