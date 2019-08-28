@@ -9,7 +9,7 @@
     - [4.1 Serial Module](#41-Serial-Module)
     - [4.2 WeChat applet module](#42-WeChat-applet-module)
     - [4.3 Secondary development](#43-Secondary-development)
-- [5. Q&A](#5-Q&A)
+- [5. Q&A](#5-QA)
 
 
 ## 1. Modify record
