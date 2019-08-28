@@ -48,8 +48,8 @@
 |Core live face recognition module, face recognition through dual-spectrum camera, and determine whether it is alive,|  |
 |Protected Screen Picture/Video Attack, Color/Black & White Laser/Inkjet Paper Attack |  |
 |Suitable for indoor and semi-outdoor (no direct sunlight) environment, common for day/night (dark light environment automatically switches to infrared recognition |  |
-|The default lens has a recognition distance of 40~80cm, and the customizable lens can be used for longer distance recognition|  |
-| Boot time is about 0.2~0.3s , and the time from power-on to recognition of the first face is 0.4~0.5s | |
+|The default lens has a recognition distance of 40 ~ 80cm, and the customizable lens can be used for longer distance recognition|  |
+| Boot time is about 0.2 ~ 0.3s , and the time from power-on to recognition of the first face is 0.4 ~ 0.5s | |
 |Storing the number of face feature values up to about 10,000, optional SDNAND can store 4K face images |  |
 |Face recognition accuracy rate 98% @ 0.001 FA|  |
 
@@ -60,7 +60,7 @@
 | The upper spring of the MF1 module is a touch button, which is entered by the button to delete the record. |  |
 | Entry method: The module is being entered into the face, the face is as full as possible on the screen, and when the face is seen by the red frame, press the button shortly, the screen will display the words “Enter Successfully”  |  |
 | Delete record: long press the button for more than 1s to delete all records |  |
-| Identification: Within the recognition distance (40~80cm, basically within the wingspan), the face that has been entered can be quickly identified, and the recognition time of the living body is 0.2~0.3s |  |
+| Identification: Within the recognition distance (40 ~ 80cm, basically within the wingspan), the face that has been entered can be quickly identified, and the recognition time of the living body is 0.2 ~ 0.3s |  |
 | Dark light recognition: When the indoor environment is dark, or at night, the MF1 automatically switches to the infrared recognition mode, which is displayed as a near-infrared face image on the screen. |  |
 
 |||
