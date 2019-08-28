@@ -15,7 +15,7 @@
     - [6.2 Sd_card API Description](#62-Sd_card-API-Description)
 - [7. lib Directory Description](#7-lib-Directory-Description)
     - [7.1 base64 API Description](#71-base64-API-Description)
-    - [7.2 cJSON API Description](#72-cJSON API-Description)
+    - [7.2 cJSON API Description](#72-cJSON-API-Description)
     - [7.3 jpeg_compress API Description](#73-jpeg_compress-API-Description)
     - [7.4 jpeg_decode API Description](#74-jpeg_decode-API-Description)
     - [7.5 oofatfs API Description](#75-oofatfs-API-Description)
