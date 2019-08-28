@@ -57,11 +57,11 @@
 
 |||
 |-|-|
-|The upper spring of the MF1 module is a touch button, which is entered by the button to delete the record. |  |
-| Entry method: The module is being entered into the face, the face is as full as possible on the screen, and when the face is seen by the red frame, press the button shortly, the screen will display the words “Enter Successfully” |  |
+| The upper spring of the MF1 module is a touch button, which is entered by the button to delete the record. |  |
+| Entry method: The module is being entered into the face, the face is as full as possible on the screen, and when the face is seen by the red frame, press the button shortly, the screen will display the words “Enter Successfully”  |  |
 | Delete record: long press the button for more than 1s to delete all records |  |
-|Identification: Within the recognition distance (40~80cm, basically within the wingspan), the face that has been entered can be quickly identified, and the recognition time of the living body is 0.2~0.3s|  |
-|Dark light recognition: When the indoor environment is dark, or at night, the MF1 automatically switches to the infrared recognition mode, which is displayed as a near-infrared face image on the screen. |  |
+| Identification: Within the recognition distance (40~80cm, basically within the wingspan), the face that has been entered can be quickly identified, and the recognition time of the living body is 0.2~0.3s |  |
+| Dark light recognition: When the indoor environment is dark, or at night, the MF1 automatically switches to the infrared recognition mode, which is displayed as a near-infrared face image on the screen. |  |
 
 |||
 |-|-|
