@@ -4,8 +4,10 @@
 - [2. Download firmware](#2. Download firmware)
 - [3. Face feature recording and deletion](#3. Face feature recording and deletion)
 - [4. Serial communication protocol](#4. Serial communication protocol)
+- [工程目录说明](#工程目录说明)    
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 1. Install driver
 
 `MF1` module onboard a `CH552`, use the serial port function to install the `FT2232` driver.
@@ -20,6 +22,7 @@ After installing the system, you may not be able to see the second serial port.
 Open the device manager, find the second serial port, right click and select `Properties`, select enable `VCP`, re-plug the device to see the serial port appear.
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 2. Download firmware
 
 <center class="half">
@@ -39,6 +42,7 @@ The specific process is:
 - ④ Click `Download` to start downloading.
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 3. Face feature recording and deletion
 
 <center class="half">
@@ -52,6 +56,7 @@ Please fill the face with the preview of the `LCD`. After the red frame on the f
 Press and hold the button to delete all stored face information and restore the default configuration information.
 
 <div STYLE="page-break-after: always;"></div>
+
 ## 4. Serial communication protocol
 
 Please refer to the specific [Protocol Document] (MF1 module serial communication protocol.md)
