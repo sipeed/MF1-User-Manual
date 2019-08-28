@@ -49,7 +49,7 @@
 |Protected Screen Picture/Video Attack, Color/Black & White Laser/Inkjet Paper Attack |  |
 |Suitable for indoor and semi-outdoor (no direct sunlight) environment, common for day/night (dark light environment automatically switches to infrared recognition |  |
 |The default lens has a recognition distance of 40~80cm, and the customizable lens can be used for longer distance recognition|  |
-| Boot time is about 0.2~0.3s, and the time from power-on to recognition of the first face is 0.4~0.5s|  |
+| Boot time is about 0.2~0.3s , and the time from power-on to recognition of the first face is 0.4~0.5s | |
 |Storing the number of face feature values up to about 10,000, optional SDNAND can store 4K face images |  |
 |Face recognition accuracy rate 98% @ 0.001 FA|  |
 
