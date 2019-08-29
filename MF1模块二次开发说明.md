@@ -68,7 +68,7 @@
 在`src/Ai_Module_MF1_lib_test`目录下打开终端，执行
 ```BASH
 cd build
-cmake ../../../ && make
+cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 ```
 开始编译，编译完成后，在`build`目录下生成`Ai_Module_MF1_lib_test.bin`,使用工具烧录到模块中
 
