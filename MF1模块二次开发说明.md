@@ -40,7 +40,7 @@
 
 本工程基于[kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
 
-！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！
+！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！，工具链[下载链接](https://github.com/kendryte/kendryte-gnu-toolchain/releases)
 
 用户只需要关心`src/Ai_Module_MF1_lib_test`目录下的文件
 
