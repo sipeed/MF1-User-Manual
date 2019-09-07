@@ -23,7 +23,7 @@
 ## `Json` 基本格式
 
 ```json
-{"vesrion":$protocol_version,"type":"cmd_type","code":0,"msg":"msg","param":{"xx":"xx","xx":xx}}\r\n
+{"version":$protocol_version,"type":"cmd_type","code":0,"msg":"msg","param":{"xx":"xx","xx":xx}}\r\n
 ```
 
 #### 说明
@@ -382,11 +382,11 @@
 ### **设置屏幕显示**
 
 ```json
-{"version":1,"type":"set_lcd_display","cfg":{"cfg_type":"str","zhCN":0,"id":0,"x":0,"y":0,"size":16,"str":"abcd","color":1,"bg_color":1}}
+{"version":2,"type":"set_lcd_display","cfg":{"cfg_type":"str","zhCN":0,"id":0,"x":0,"y":0,"size":16,"str":"abcd","color":1,"bg_color":1}}
 ```
 
 ```json
-{"version":1,"type":"set_lcd_display","cfg":{"cfg_type":"pic","id":0,"x":0,"y":0,"w":320,"h":240,"addr":123456,"alpha":50}}
+{"version":2,"type":"set_lcd_display","cfg":{"cfg_type":"pic","id":0,"x":0,"y":0,"w":320,"h":240,"addr":123456,"alpha":50}}
 ```
 
 #### 说明
@@ -433,7 +433,7 @@
 ### **设置屏幕显示结果**
 
 ```json
-{"version":1,"type":"set_lcd_display_ret","msg":"set lcd display success","code":0,"id":0}
+{"version":2,"type":"set_lcd_display_ret","msg":"set lcd display success","code":0,"id":0}
 ```
 
 #### 说明
@@ -454,7 +454,7 @@
 ### **删除屏幕显示**
 
 ```json
-{"version":1,"type":"clr_lcd_display","id":0}
+{"version":2,"type":"clr_lcd_display","id":0}
 ```
 
 #### 说明
@@ -467,7 +467,7 @@
 ### **删除屏幕显示结果**
 
 ```json
-{"version":1,"type":"clr_lcd_display_ret","msg":"clr lcd display success","code":0,"id":0}
+{"version":2,"type":"clr_lcd_display_ret","msg":"clr lcd display success","code":0,"id":0}
 ```
 
 #### 说明
