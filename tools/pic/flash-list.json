@@ -1,0 +1,40 @@
+{
+  "version": "0.1.0",
+  "files": [
+    {
+      "address": 12582912,
+      "bin": "0.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 12701696,
+      "bin": "1.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 12820480,
+      "bin": "2.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 12939264,
+      "bin": "3.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 13058048,
+      "bin": "4.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 13176832,
+      "bin": "5.bin",
+      "sha256Prefix": false
+    },
+    {
+      "address": 13295616,
+      "bin": "6.bin",
+      "sha256Prefix": false
+    }
+  ]
+}
