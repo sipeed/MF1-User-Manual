@@ -110,7 +110,7 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 
 `esp8285 SPI`固件[下载地址](http://dl.sipeed.com/MAIX/HDK/factory_firmware/esp8266/WiFiSPIESP.ino.esp8285_40M_freq_1M_DOUT.bin)
 
-`flash_download_tools`[下载地址](https://www.espressif.com/sites/default/files/tools/flash_download_tools_v3.6.6.zip)
+`flash_download_tools`[下载地址](https://www.espressif.com/zh-hans/support/download/other-tools)
 
 `flash_download_tools`下载选项
 
