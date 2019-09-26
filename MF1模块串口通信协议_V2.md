@@ -488,7 +488,7 @@
 ### **设置模块硬件配置**
 
 ```json
-{"version":2,"type":"brd_hard_cfg","cfg":{"get_cfg":0,"cfg_type":"lcd_cam","cfg":{"lcd_flip":0,"lcd_mirror":0,"cam_flip":0,"cam_mirror":0}}
+{"version":2,"type":"brd_hard_cfg","cfg":{"get_cfg":0,"cfg_type":"lcd_cam","lcd_flip":0,"lcd_mirror":0,"cam_flip":0,"cam_mirror":0}}
 ```
 
 ```json
