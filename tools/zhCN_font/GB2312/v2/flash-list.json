@@ -1,0 +1,20 @@
+{
+  "version": "0.1.0",
+  "files": [
+    {
+      "address": 1048576,
+      "bin": "GB2312_16x16.FON",
+      "sha256Prefix": false
+    },
+    {
+      "address": 1315840,
+      "bin": "GB2312_24x24.FON",
+      "sha256Prefix": false
+    },
+    {
+      "address": 1917184,
+      "bin": "GB2312_32x32.FON",
+      "sha256Prefix": false
+    }
+  ]
+}
