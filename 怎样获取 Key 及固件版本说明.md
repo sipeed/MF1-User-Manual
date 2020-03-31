@@ -42,6 +42,6 @@ MF1 下载连接: [https://cn.dl.sipeed.com/MAIX/SDK/](https://cn.dl.sipeed.com/
 | --- | --- |
 | elf_maixpy_xxx.7z | *.elf |
 | mf1_clr1_xxx.bin | 长按键, 清除人脸特征值
-| mf1_clr0_xxx.bin | 长按件, 不清除人脸特征值
+| mf1_clr0_xxx.bin | 长按键, 不清除人脸特征值
 | mf1_key_reset_xxx.bin | 长按键, 无任何操作 |
 | mf1_2_4_inch_xxx.bin | 针对 2.4/2.8' 横屏 LCD， 烧录之后再烧录清除配置文件 [fix_flash_cfg.kfpkg](https://cn.dl.sipeed.com/MAIX/SDK/MF1_SDK_Prebuild/dev/fix_flash_cfg.kfpkg)
