@@ -2,24 +2,24 @@
 
 ### 如果有任何的需求或者BUG,请发邮件至**support@sipeed.com**
 
-### `SDK`中只包含固件代码，模型文件需要另外生成（出厂已烧录），具体请邮件联系我们
+### `SDK`中只包含固件代码, 模型文件需要另外生成（出厂已烧录）, 具体请邮件联系我们
 
-## **本文档是旧的`SDK`说明，请参考新的文档**
+## **本文档是旧的`SDK`说明, 请参考新的文档**
 
 ## 目录
 
-- [工程目录说明](#工程目录说明)    
-- [工程编译](#工程编译)    
-- [下载固件](#下载固件)    
+- [工程目录说明](#工程目录说明)
+- [工程编译](#工程编译)
+- [下载固件](#下载固件)
 - [升级`ESP8285`固件](#升级`ESP8285`固件)
-- [人脸识别库API说明](#人脸识别库api说明)        
-    - [人脸识别API](#人脸识别api)        
-    - [串口协议库API](#串口协议库api)        
-    - [FLASH读写API](#flash读写api)        
-    - [CAMERA操作API](#camera操作api) 
-- [`Driver` 目录说明](#driver-目录说明)  
-    - [`Flash` API说明](#flash-api说明)    
-    - [`Sd_card` API说明](#sd_card-api说明)   
+- [人脸识别库API说明](#人脸识别库api说明)
+    - [人脸识别API](#人脸识别api)
+    - [串口协议库API](#串口协议库api)
+    - [FLASH读写API](#flash读写api)
+    - [CAMERA操作API](#camera操作api)
+- [`Driver` 目录说明](#driver-目录说明)
+    - [`Flash` API说明](#flash-api说明)
+    - [`Sd_card` API说明](#sd_card-api说明)
 - [`lib` 目录说明](#lib-目录说明)
     - [`base64` API说明](#base64-api说明)
     - [`cJSON` API说明](#cjson-api说明)
@@ -42,7 +42,7 @@
 
 本工程基于[kendryte-standalone-sdk](https://github.com/kendryte/kendryte-standalone-sdk)
 
-！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！，工具链[下载链接](https://github.com/kendryte/kendryte-gnu-toolchain/releases)
+！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！, 工具链[下载链接](https://github.com/kendryte/kendryte-gnu-toolchain/releases)
 
 用户只需要关心`src/Ai_Module_MF1_lib_test`目录下的文件
 
@@ -65,42 +65,42 @@
 
 ## 工程编译
 
-> 建议使用`Ubuntu`或其他`Linux`发行版进行编译，本工程并未在`Kendryte-IDE`中验证过
+> 建议使用`Ubuntu`或其他`Linux`发行版进行编译, 本工程并未在`Kendryte-IDE`中验证过
 
-在`src/Ai_Module_MF1_lib_test`目录下打开终端，执行
+在`src/Ai_Module_MF1_lib_test`目录下打开终端, 执行
 ```BASH
 cd build
 cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 ```
-开始编译，编译完成后，在`build`目录下生成`Ai_Module_MF1_lib_test.bin`,使用工具烧录到模块中
+开始编译, 编译完成后, 在`build`目录下生成`Ai_Module_MF1_lib_test.bin`,使用工具烧录到模块中
 
 ## 下载固件
 
 <center class="half">
 <img src="assests/kflash_gui.jpg" height = 50% width = 80% />
 </center>
-  
+
 用户可以使用`kflash_gui`来下载程序
-  
+
 具体流程为：
 
-- ① 打开需要烧录的固件，
+- ① 打开需要烧录的固件,
 
-  如果是`bin`文件，请确保地址为`0x00`,
-  
-  是`kfpkg`文件时，不需要选择地址
+  如果是`bin`文件, 请确保地址为`0x00`,
 
-- ② 选择开发板型号，`MF1`模块请选择`Sipeed Maix Bit With Mic`
+  是`kfpkg`文件时, 不需要选择地址
 
-- ③ 选择串口，`MF1`模块，请选择第一个串口
+- ② 选择开发板型号, `MF1`模块请选择`Sipeed Maix Bit With Mic`
 
-- ④ 点击`下载`，开始下载
-  
+- ③ 选择串口, `MF1`模块, 请选择第一个串口
+
+- ④ 点击`下载`, 开始下载
+
 ## 升级`ESP8285`固件
 
-现在（2019.08.14之前）`esp8285`出厂默认烧录的是`AT`固件，在`MF1`中使用的是`SPI`与模块进行通信，所以需要更新一下固件。
+现在（2019.08.14之前）`esp8285`出厂默认烧录的是`AT`固件, 在`MF1`中使用的是`SPI`与模块进行通信, 所以需要更新一下固件.
 
-**更新`esp8285`固件，需要将使能引脚打开，烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
+**更新`esp8285`固件, 需要将使能引脚打开, 烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
 
 <center class="half">
 <img src="assests/update_esp8285.jpg" height = 50% width = 50% />
@@ -120,9 +120,9 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 <img src="assests/flash_download_tools.png" height = 50% width = 60% />
 </center>
 
-〇：注意选择`ESP8285`下载，**千万不要**选择了`ESP8266`
+〇：注意选择`ESP8285`下载, **千万不要**选择了`ESP8266`
 
-①：选择之前下载的固件，地址为`0`
+①：选择之前下载的固件, 地址为`0`
 
 ②：选择晶振频率为`40M`
 
@@ -130,7 +130,7 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 
 ④：选择`flash`大小为`8Mbit`
 
-⑤：选择对应的串口，**波特率建议选择为115200**
+⑤：选择对应的串口, **波特率建议选择为115200**
 
 ⑥：点击开始下载
 
@@ -154,7 +154,7 @@ void face_lib_run(face_recognition_cfg_t *cfg);
 
 ### 串口协议库API
 
-> 可以使用`mqtt`进行通信，但是目前无法计算图片的特征值。
+> 可以使用`mqtt`进行通信, 但是目前无法计算图片的特征值.
 
 ```C
 uint8_t protocol_send_init_done(void);
@@ -210,7 +210,7 @@ DVP中断回调,在Board.c中进行注册
 ```C
 int gc0328_init(void);
 ```
-GC0328初始化,在Board.c中调用，初始化摄像头
+GC0328初始化,在Board.c中调用, 初始化摄像头
 
 ```C
 extern volatile uint8_t g_dvp_finish_flag；
@@ -227,9 +227,9 @@ extern volatile uint8_t g_dvp_finish_flag；
 |├── flash.h||
 |├── font.c|lcd显示字库|
 |├── font.h||
-|├── lcd_sipeed|`sipeed`的`lcd`驱动板驱动程序，暂未调试好|
-|├── lcd_ssd1963|`ssd1963`屏幕控制器驱动，内存占用过大，暂不支持|
-|├── lcd_st7789|板载`st7789`屏幕控制器驱动，默认使用|
+|├── lcd_sipeed|`sipeed`的`lcd`驱动板驱动程序, 暂未调试好|
+|├── lcd_ssd1963|`ssd1963`屏幕控制器驱动, 内存占用过大, 暂不支持|
+|├── lcd_st7789|板载`st7789`屏幕控制器驱动, 默认使用|
 |├── sd_card.c|`gpio`模拟的`sd_card`驱动|
 |└── sd_card.h||
 
@@ -243,7 +243,7 @@ void flash_init(void);
 ```C
 int flash_delete_face_info(uint32_t id);
 ```
-删除保存在flash中，指定`id`对应的人脸信息
+删除保存在flash中, 指定`id`对应的人脸信息
 
 ```C
 int flash_delete_face_all(void);
@@ -253,7 +253,7 @@ int flash_delete_face_all(void);
 ```C
 int flash_save_face_info(uint8_t *image, float *features, uint8_t *uid, uint32_t valid, char *name, char *note, uint8_t *ret_uid);
 ```
-保存人脸信息到`flash`中，`features`与`uid`必需
+保存人脸信息到`flash`中, `features`与`uid`必需
 
 ```C
 int flash_get_saved_faceinfo(face_info_t *info, uint32_t index);
@@ -271,7 +271,7 @@ uint8_t flash_save_cfg(board_cfg_t *cfg);
 uint8_t flash_cfg_print(board_cfg_t *cfg);
 uint8_t flash_cfg_set_default(board_cfg_t *cfg);
 ```
-使用`flash`保存一些配置，用户可添加自己的配置，但不可删除已有的
+使用`flash`保存一些配置, 用户可添加自己的配置, 但不可删除已有的
 
 ### `Sd_card` API说明
 
@@ -280,7 +280,7 @@ uint8_t SD_Initialize(void);
 uint8_t SD_ReadDisk(uint8_t *buf, uint32_t sector, uint8_t cnt);
 uint8_t SD_WriteDisk(uint8_t *buf, uint32_t sector, uint8_t cnt);
 ```
-`Sd_card`初始化与读写，用户不需要关心，只需要使用文件系统进行操作即可
+`Sd_card`初始化与读写, 用户不需要关心, 只需要使用文件系统进行操作即可
 
 
 ## `lib` 目录说明
@@ -310,14 +310,14 @@ unsigned char *base64_decode(const unsigned char *src, size_t len, size_t *out_l
 
 ### `cJSON` API说明
 
-`cJSON`是一个很成熟的库了，具体的使用请百度或者谷歌。
+`cJSON`是一个很成熟的库了, 具体的使用请百度或者谷歌.
 
 ### `jpeg_compress` API说明
 
 ```C
 uint8_t reverse_u32pixel(uint32_t *addr, uint32_t length);
 ```
-由于`dvp`输出的`rgb565`图像字节序有问题，所以在进行`jpeg`编码之前，需要将图像进行一次字节序调整
+由于`dvp`输出的`rgb565`图像字节序有问题, 所以在进行`jpeg`编码之前, 需要将图像进行一次字节序调整
 
 ```C
 bool jpeg_compress(jpeg_encode_t *src, jpeg_encode_t *dst, int quality, bool realloc);
@@ -360,19 +360,19 @@ Demo
 ```C
 //out_img,解码输出缓存
 //buf,jpeg图片缓存
-//buf_len，jpeg图片缓存大小
-//rgb565，是否解码为rgb565，为0时，解码输出为rgb888
+//buf_len, jpeg图片缓存大小
+//rgb565, 是否解码为rgb565, 为0时, 解码输出为rgb888
 jpeg_decode_image_t *pico_jpeg_decode(uint8_t *out_img, uint8_t *buf, uint32_t buf_len, uint8_t rgb565);
 ```
-解码`jpeg`图片，
+解码`jpeg`图片,
 
 ### `oofatfs` API说明
 
-文件系统的操作，请参考[oofatfs文档](https://github.com/micropython/oofatfs)
+文件系统的操作, 请参考[oofatfs文档](https://github.com/micropython/oofatfs)
 
 ### `fmath` API说明
 
-用户基本不使用，不用关心
+用户基本不使用, 不用关心
 
 ### `img_op` API说明
 
@@ -380,7 +380,7 @@ jpeg_decode_image_t *pico_jpeg_decode(uint8_t *out_img, uint8_t *buf, uint32_t b
 
 ### `sd_op` API说明
 
-暂时未封装太多文件系统读写操作，之后添加
+暂时未封装太多文件系统读写操作, 之后添加
 
 ## `ui` 目录说明
 
@@ -388,7 +388,7 @@ jpeg_decode_image_t *pico_jpeg_decode(uint8_t *out_img, uint8_t *buf, uint32_t b
 
 ## `uart_recv` 目录说明
 
-串口通信协议的一些操作，主要是串口接受，以及外设控制
+串口通信协议的一些操作, 主要是串口接受, 以及外设控制
 
 ## `network` 目录说明
 | | |
@@ -466,7 +466,7 @@ Demo
         http_upload_face,//请求地址
         send_hdr,//请求头
         NULL,//post的body内容
-        NULL,//分割字符串，可不用
+        NULL,//分割字符串, 可不用
         upload->jpeg_addr,//post的文件地址
         upload->jpeg_len,//post的文件长度
         http_header,//服务器返回的头
@@ -478,7 +478,7 @@ Demo
 ```C
 uint32_t http_save_file(uint8_t sock, char *resp_header, uint32_t resp_header_len, uint8_t *file, uint32_t file_len);
 ```
-解析服务器返回的数据，不用关心
+解析服务器返回的数据, 不用关心
 
 其他文件用户不需关心
 
@@ -490,12 +490,12 @@ uint8_t PubSubClient_connect1(const char *id, const char *user, const char *pass
 uint8_t PubSubClient_connect2(const char *id, const char *willTopic, uint8_t willQos, uint8_t willRetain, const char *willMessage);
 uint8_t PubSubClient_connect3(const char *id, const char *user, const char *pass, const char *willTopic, uint8_t willQos, uint8_t willRetain, const char *willMessage);
 ```
-连接mqtt服务器，用户选择自己需要的函数使用
+连接mqtt服务器, 用户选择自己需要的函数使用
 
 ```C
 uint8_t PubSubClient_loop(void);
 ```
-主函数中调用，发送心跳包，以及接受数据
+主函数中调用, 发送心跳包, 以及接受数据
 
 ```C
 uint8_t PubSubClient_publish(const char *topic, const uint8_t *payload, unsigned int plength);
@@ -515,33 +515,33 @@ uint8_t PubSubClient_unsubscribe(const char *topic);
 ```C
 uint8_t PubSubClient_connected(void);
 ```
-判断是否连接到服务器，若没有，需要进行重连
+判断是否连接到服务器, 若没有, 需要进行重连
 
 ### `qrcode` API说明
 
 ```C
 uint8_t find_qrcodes(qrcode_result_t *out, qrcode_image_t *img);
 ```
-识别二维码，具体的使用方法请参考例程`net_8285.c`
+识别二维码, 具体的使用方法请参考例程`net_8285.c`
 
 ### `wifi` API说明
 
-包含`8285`的驱动，用户不用关心
+包含`8285`的驱动, 用户不用关心
 
 ### `net_8285.c` API说明
 
 ```C
 qr_wifi_info_t *qrcode_get_wifi_cfg(void);
 ```
-扫描二维码，获取`wifi`配置信息，二维码格式`{"t":"84:0D:8E:6C:62:9C","w":"Sipeed_2.4G","p":"Sipeed123."}`
+扫描二维码, 获取`wifi`配置信息, 二维码格式`{"t":"84:0D:8E:6C:62:9C","w":"Sipeed_2.4G","p":"Sipeed123."}`
 
-`t`:模块的`MAC`地址，在初始化中有打印
+`t`:模块的`MAC`地址, 在初始化中有打印
 
 `w`:热点的名称
 
 `p`:热点的密码
 
-> 生成的二维码版本不能太高，以及容错级别要为`L`,建议使用[barcodegenerator](https://racoindustries.com/barcodegenerator/2d/qr-code/)来生成
+> 生成的二维码版本不能太高, 以及容错级别要为`L`,建议使用[barcodegenerator](https://racoindustries.com/barcodegenerator/2d/qr-code/)来生成
 
 
 ```C
@@ -564,7 +564,7 @@ mqtt掉线重连
 ```C
 uint8_t spi_8266_mqtt_init(void);
 ```
-初始化`mqtt`连接，用户可修改连接的服务器以及`topic`等
+初始化`mqtt`连接, 用户可修改连接的服务器以及`topic`等
 
 ```C
 void spi_8266_mqtt_send(char *buf,size_t len);

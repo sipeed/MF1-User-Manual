@@ -1,8 +1,8 @@
 # 怎样获取 Key 及固件版本说明
 
-在使用过程中,如果模块的模型丢失或需要更换, 获取 **Key(机器码)** 及烧录固件流程如下
+在使用过程中, 如果模块的模型丢失或需要更换, 获取 **Key(机器码)** 及烧录固件流程如下
 
--  1.烧录 key
+- 1.烧录 key
 - 2.发送 key 到 support 邮箱(负责人员开发任务重，请耐性等待回复[可能需要一天])
 - 3.烧录 MF1 固件
 - 4.烧录 support 邮箱发送的人脸模型(有横竖屏两种模型，**不一定两个都可以用**，请自行尝试)
@@ -11,7 +11,7 @@
 
 ## 怎么获取 Key(机器码)
 
-在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到[Support@sipee.com](support@sipeed.com)
+在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到 <Support@sipeed.com>
 
 推荐发送邮件格式如下:
 
@@ -57,4 +57,4 @@ MF1 下载连接: [https://cn.dl.sipeed.com/MAIX/SDK/](https://cn.dl.sipeed.com/
 | mf1_clr1_xxx.bin | 长按键, 清除人脸特征值
 | mf1_clr0_xxx.bin | 长按键, 不清除人脸特征值
 | mf1_key_reset_xxx.bin | 长按键, 无任何操作 |
-| mf1_2_4_inch_xxx.bin | 针对 2.4/2.8' 横屏 LCD， 烧录之后再烧录清除配置文件 [fix_flash_cfg.kfpkg](https://cn.dl.sipeed.com/MAIX/SDK/MF1_SDK_Prebuild/dev/fix_flash_cfg.kfpkg)
+| mf1_2_4_inch_xxx.bin | 针对 2.4/2.8' 横屏 LCD, 烧录之后再烧录清除配置文件 [fix_flash_cfg.kfpkg](https://cn.dl.sipeed.com/MAIX/SDK/MF1_SDK_Prebuild/dev/fix_flash_cfg.kfpkg)

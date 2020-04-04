@@ -1,6 +1,6 @@
 # MF1模块二次开发说明
 
-### 如果有任何的需求或者BUG,请发邮件至**support@sipeed.com**
+### 如果有任何的需求或者BUG,请发邮件至 **<support@sipeed.com>**
 
 ### `SDK`中只包含固件代码，模型文件需要另外生成（出厂已烧录），具体请邮件联系我们
 
@@ -9,7 +9,7 @@
 
 ## 工程目录说明
 
-！！！[`SDK`](https://github.com/sipeed/MF1_SDK)下载连接！！！，工具链 [下载链接](https://github.com/kendryte/kendryte-gnu-toolchain/releases)
+[**SDK**](https://github.com/sipeed/MF1_SDK) 下载连接，**工具链** [下载链接](https://github.com/kendryte/kendryte-gnu-toolchain/releases)
 
 
 ```
@@ -60,15 +60,15 @@ tools                              SDK编译相关的工具
 <center class="half">
 <img src="assests/kflash_gui.jpg" height = 50% width = 80% />
 </center>
-  
-用户可以使用`kflash_gui`来下载程序
-  
+
+用户可以使用 `kflash_gui` 来下载程序
+
 具体流程为：
 
 - ① 打开需要烧录的固件，
 
   如果是`bin`文件，请确保地址为`0x00`,
-  
+
   是`kfpkg`文件时，不需要选择地址
 
 - ② 选择开发板型号，`MF1`模块请选择`Sipeed Maix Bit With Mic`
@@ -76,12 +76,12 @@ tools                              SDK编译相关的工具
 - ③ 选择串口，`MF1`模块，请选择第一个串口
 
 - ④ 点击`下载`，开始下载
-  
-## 升级`ESP8285`固件
 
-现在（2019.08.14之前）`esp8285`出厂默认烧录的是`AT`固件，在`MF1`中使用的是`SPI`与模块进行通信，所以需要更新一下固件。
+## 升级 `ESP8285` 固件
 
-**更新`esp8285`固件，需要将使能引脚打开，烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
+现在(2019.08.14之前) `esp8285` 出厂默认烧录的是 `AT` 固件，在 `MF1` 中使用的是 `SPI` 与模块进行通信，所以需要更新一下固件。
+
+**更新 `esp8285` 固件，需要将使能引脚打开，烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
 
 <center class="half">
 <img src="assests/update_esp8285.jpg" height = 50% width = 50% />
