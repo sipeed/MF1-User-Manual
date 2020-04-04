@@ -11,11 +11,7 @@
 
 ## 怎么获取 Key(机器码)
 
-<<<<<<< HEAD
 在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到 <Support@sipeed.com>
-=======
-在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到[Support@sipeed.com](support@sipeed.com)
->>>>>>> e260d96ed8ee3ff0eabeff2a4bb5a14b882cfd14
 
 推荐发送邮件格式如下:
 
