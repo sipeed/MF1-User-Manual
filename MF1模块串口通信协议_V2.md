@@ -5,6 +5,7 @@
 | 版本      | 时间         | 修改内容       |
 | -------- | ------------ | ------------- |
 | `0.1`   | `2019.09.05`  | 协议版本到 `2`   |
+| `0.1`   | `2020.06.01`  | 添加新的接口   |
 
 ## 硬件连接
 
@@ -23,7 +24,16 @@
 ## `Json` 基本格式
 
 ```json
-{"version":$protocol_version,"type":"cmd_type","code":0,"msg":"msg","param":{"xx":"xx","xx":xx}}\r\n
+{
+    "version":$protocol_version,
+    "type": "cmd_type",
+    "code": 0,
+    "msg": "msg",
+    "param": {
+        "xx": "xx",
+        "xx":xx
+    }
+}\r\n
 ```
 
 #### 说明
@@ -40,19 +50,15 @@
 
 | 命令类型: `cmd_type`    | 说明  |
 | ---------- | ---------- |
-| [`init`](#初始化完成) | 模块发送初始化完成消息    |
-| [`pkt_prase_failed_ret`](#数据包解析出错信息) | 数据包解析出错信息    |
+| [`init`](#初始化完成) | 模块发送初始化完成消息 |
+| [`pkt_prase_failed_ret`](#数据包解析出错信息) | 数据包解析出错信息 |
 | [`face_info`](#输出人脸信息) | 识别到人脸后输出人脸信息 |
-| [`face_recon`](#设置是否进行人脸识别) | 设置是否进行人脸识别 |
-| [`face_recon_ret`](#设置是否进行人脸识别结果) | 设置是否进行人脸识别结果 |
 | [`cal_pic_fea`](#计算图片人脸特征值) | 计算`Jpeg`图片中的人脸特征值 |
 | [`cal_pic_fea_ret`](#计算图片人脸特征值结果) | 计算`Jpeg`图片中的人脸特征值结果 |
-| [`add_user_spec_uid`](#添加用户指定UID) | 添加用户并指定 `UID`  |
-| [`add_user_spec_uid_ret`](#添加用户指定UID结果) | 添加用户并指定 `UID` 结果 |
 | [`add_user_by_fea`](#通过特征值添加用户) | 通过特征值添加用户 |
 | [`add_user_by_fea_ret`](#通过特征值添加用户结果) |  通过特征值添加用户结果 |
-| [`query_uid`](#查询UID是否存在) |  查询 `UID` 是否存在 |
-| [`query_uid_ret`](#查询UID是否存在结果) |  查询 `UID` 是否存在结果 |
+| [`add_user_spec_uid`](#添加用户指定UID) | 添加用户并指定 `UID`  |
+| [`add_user_spec_uid_ret`](#添加用户指定UID结果) | 添加用户并指定 `UID` 结果 |
 | [`del_user_by_uid`](#通过UID删除用户) |  通过 `UID` 删除用户 |
 | [`del_user_by_uid_ret`](#通过UID删除用户结果) | 通过 `UID` 删除用户结果 |
 | [`query_face`](#查询模块存储人脸信息) |  查询模块中存储的人脸信息 |
@@ -65,10 +71,19 @@
 | [`brd_hard_cfg_ret`](#设置模块硬件配置结果) |  设置模块硬件配置结果 |
 | [`brd_soft_cfg`](#设置模块软件配置) | 设置模块软件配置  |
 | [`brd_soft_cfg_ret`](#设置模块软件配置结果) | 设置模块软件配置结果 |
-| [`qrscan`](#进行二维码扫码) | 模块进行二维码扫码  |
-| [`qrscan_ret`](#二维码扫码结果) | 二维码扫码结果 |
 | [`set_notify`](#设置通知陌生人) | 设置是否通知陌生人信息 |
 | [`set_notify_ret`](#设置通知陌生人结果) | 设置是否通知陌生人信息结果 |
+| [`query_uid`](#查询UID是否存在) | 查询指定UID是否存在 |
+| [`query_uid_ret`](#查询UID是否存在结果) | 查询指定UID是否存在结果 |
+| [`face_recon`](#设置是否进行人脸识别) | 设置是否进行人脸识别 |
+| [`face_recon_ret`](#设置是否进行人脸识别结果) | 设置是否进行人脸识别结果 |
+| [`qrscan`](#进行二维码扫码) | 模块进行二维码扫码  |
+| [`qrscan_ret`](#二维码扫码结果) | 二维码扫码结果 |
+| [`restore`](#恢复出厂设置) | 恢复出厂设置 |
+| [`restore_ret`](#恢复出厂设置结果) | 恢复出厂设置结果 |
+| [`reset`](#控制设备重启) | 控制设备重启 |
+| [`reset_ret`](#控制设备重启结果) | 控制设备重启结果 |
+
 
 > 以上 `cmd` 可点击跳转
 
@@ -110,6 +125,8 @@
 #### 说明
 
 接受到错误的数据包之后返回, 并指出错误的地方, 主要用来协助排查错误
+
+> 这里有拼写错误，但是为了兼容，不再纠正
 
 <br/>
 <br/>
@@ -162,42 +179,19 @@
 <br/>
 <br/>
 
-### **设置是否进行人脸识别**
-```json
-{"version":2,"type":"face_recon","query_stat":0,"set_stat":1}
-```
-
-#### 说明
-
-`query_stat`: 查询当前人脸识别的状态, `0` 禁用, `1` 使能
-
-`set_stat`: 设置是否进行人脸识别
-
-### **设置是否进行人脸识别结果**
-
-```json
-{"version":2,"type":"face_recon_ret","code":0,"msg":"set_stat success","stat":1}
-```
-
-#### 说明
-
-`msg`: 执行结果
-
-`stat`: 当前是否进行人脸识别的状态
-
-`code`: 状态码
-
-- 状态码
-
-  `0`: 成功
-
-  `1`: 解析失败
-
-
 ### **计算图片人脸特征值**
 
 ```json
-{"version": 2,"type": "cal_pic_fea","img": {"size": 10152,"auto_add":0,"sha256": "E65083CFEEEA8F377094C2297E8D3691C23AA8BAD33A82B5E4E4981914FFAC74","uid":"0A6F4FB4000000000000000000000000"}}
+{
+    "version": 2,
+    "type": "cal_pic_fea",
+    "img": {
+        "size": 10152,
+        "auto_add":0,
+        "sha256": "E65083CFEEEA8F377094C2297E8D3691C23AA8BAD33A82B5E4E4981914FFAC74",
+        "uid":"0A6F4FB4000000000000000000000000"
+    }
+}
 ```
 
 #### 说明
@@ -215,7 +209,16 @@
 收到以下返回内容(`code` 为 1)就可以开始发送图片, 必须在`10s`内发送完毕。超时退出接受`jpeg`状态
 
 ```json
-{"version":2,"type":"cal_pic_fea_ret","code":1,"msg":"please start send jpeg image","info":{"uid":"null","feature":"null"}}
+{
+    "version": 2,
+    "type": "cal_pic_fea_ret",
+    "code": 1,
+    "msg": "please start send jpeg image",
+    "info": {
+        "uid": "null",
+        "feature": "null"
+    }
+}\r\n
 ```
 
 > 当 `info` 中的 `code`为 `1` 表示可以开始发送 `Jpeg` 图片
@@ -236,7 +239,17 @@
 ### **计算图片人脸特征值结果**
 
 ```json
-{"version":2,"type":"cal_pic_fea_ret","code":0,"msg":"get feature success","info":{"face_prob":0.90,"uid":"0A6F4FB4000000000000000000000000","feature":"feature base64 encode"}}
+{
+    "version":2,
+    "type":"cal_pic_fea_ret",
+    "code":0,
+    "msg":"get feature success",
+    "info":{
+        "face_prob":0.90,
+        "uid":"0A6F4FB4000000000000000000000000",
+        "feature":"feature base64 encode"
+    }
+}
 ```
 
 #### 说明
@@ -274,50 +287,17 @@
 <br/>
 <br/>
 
-### **添加用户指定UID**
-
-```json
-{"version":2,"type":"add_user_spec_uid","user":{"uid":"EDE6E800A20000000000000000000000","time_s":5}}
-```
-
-#### 说明
-
-> 相当于按键录入用户, 可以指定 `uid` ,会检测用户是否正脸
-
- `uid` : 用户指定新添加用户的 `uid` 
-
-`time_s`: 添加用户超时时间, 默认`5`s,最大值`100`
-
-<br/>
-<br/>
-
-### **添加用户指定UID结果**
-
-```json
-{"version":2,"type":"add_user_spec_uid_ret","user":{"uid":"EDE6E800A20000000000000000000000"}}
-```
-
-#### 说明
-
-`msg`: 执行结果
-
-`code`: 状态码
-
-- 状态码
-
-  `0`: 成功
-
-  `1`: 失败
-
-  `2`： 等待添加
-
-<br/>
-<br/>
-
 ### **通过特征值添加用户**
 
 ```json
-{"version":2,"type":"add_user_by_fea","user":{"uid":"EDE6E800A20000000000000000000000","fea":"feature base64 encode"}}
+{
+    "version":2,
+    "type":"add_user_by_fea",
+    "user":{
+        "uid":"EDE6E800A20000000000000000000000",
+        "fea":"feature base64 encode"
+    }
+}
 ```
 
 #### 说明
@@ -329,7 +309,13 @@
 ### **通过特征值添加用户结果**
 
 ```json
-{"version":2,"type":"add_user_by_fea_ret","code":0,"msg":"add user success","uid":"EDE6E800A20000000000000000000000"}
+{
+    "version":2,
+    "type":"add_user_by_fea_ret",
+    "code":0,
+    "msg":"add user success",
+    "uid":"EDE6E800A20000000000000000000000"
+}
 ```
 
 #### 说明
@@ -353,38 +339,68 @@
 <br/>
 <br/>
 
-### **查询UID是否存在**
+### **添加用户指定UID**
+
 ```json
-{"version":2,"type":"query_uid","uid":"0E3D6BA9000000000000000000000000"}
+{
+    "version":2,
+    "type":"add_user_spec_uid",
+    "user":{
+        "uid":"EDE6E800A20000000000000000000000",
+        "time_s":5
+    }
+}
 ```
 
 #### 说明
- `uid` : 需要查询的 uid
 
-### **查询UID是否存在结果**
+> 相当于按键录入用户, 可以指定 `uid` ,会检测用户是否正脸
+
+ `uid` : 用户指定新添加用户的 `uid` 
+
+`time_s`: 添加用户超时时间, 默认`5`s,最大值`100`
+
+<br/>
+<br/>
+
+### **添加用户指定UID结果**
+
 ```json
-{"version":2,"type":"query_uid_ret","code":0,"msg":"uid exist","uid_id":1}
+{
+    "version":2,
+    "type":"add_user_spec_uid_ret",
+    "user":{
+        "uid":"EDE6E800A20000000000000000000000"
+    }
+}
 ```
 
 #### 说明
 
 `msg`: 执行结果
 
-`uid_id`:  `UID` 存储的`id`, 这个可以配合查询用户信息使用
-
 `code`: 状态码
 
 - 状态码
-  `0`:  `UID` 存在
 
-  `1`:  `UID` 不存在
+  `0`: 成功
 
-  `2`: 解析错误
+  `1`: 失败
+
+  `2`： 等待添加
+
+<br/>
+<br/>
+
 
 ### **通过UID删除用户**
 
 ```json
-{"version": 2,"type": "del_user_by_uid","uid":"1BC6EB528C0000000000000000000000"}
+{
+    "version": 2,
+    "type": "del_user_by_uid",
+    "uid":"1BC6EB528C0000000000000000000000"
+}
 ```
 
 #### 说明
@@ -401,7 +417,12 @@
 ### **通过UID删除用户结果**
 
 ```json
-{"version":2,"type":"del_user_by_uid_ret","code":3,"msg":"can not find user by uid"}
+{
+    "version":2,
+    "type":"del_user_by_uid_ret",
+    "code":3,
+    "msg":"can not find user by uid"
+}
 ```
 
 #### 说明
@@ -426,7 +447,16 @@
 ### **查询模块存储人脸信息**
 
 ```json
-{"version":2,"type":"query_face","query":{"total":1,"start":0,"end":10,"out_feature":0}}
+{
+    "version":2,
+    "type":"query_face",
+    "query":{
+        "total":1,
+        "start":0,
+        "end":10,
+        "out_feature":0
+    }
+}
 ```
 
 #### 说明
@@ -445,7 +475,25 @@
 ### **查询模块存储人脸信息结果**
 
 ```json
-{"version":2,"type":"query_face_ret","code":0,"msg":"query uid ands feature success","face":{"total":2,"start":0,"end":1,"info":[{"order":0,"uid":"22BCD239290000000000000000000000","feature":"feature bease64 encode"}...]}}
+{
+    "version": 2,
+    "type": "query_face_ret",
+    "code": 0,
+    "msg": "query uid ands feature success",
+    "face": {
+        "total": 2,
+        "start": 0,
+        "end": 1,
+        "info": [
+            {
+                "order": 0,
+                "uid": "22BCD239290000000000000000000000",
+                "feature": "feature bease64 encode"
+            },
+			...
+        ]
+    }
+}
 ```
 
 #### 说明
@@ -486,11 +534,39 @@
 ### **设置屏幕显示**
 
 ```json
-{"version":2,"type":"set_lcd_display","cfg":{"cfg_type":"str","zhCN":0,"id":0,"x":0,"y":0,"size":16,"str":"abcd","color":1,"bg_color":1}}
+{
+    "version":2,
+    "type":"set_lcd_display",
+    "cfg":{
+        "cfg_type":"str",
+        "zhCN":0,
+        "id":0,
+        "x":0,
+        "y":0,
+        "size":16,
+        "str":"abcd",
+        "color":1,
+        "bg_color":1
+    }
+}
 ```
 
 ```json
-{"version":2,"type":"set_lcd_display","cfg":{"cfg_type":"pic","id":0,"x":0,"y":0,"w":320,"h":240,"addr":123456,"alpha":50}}
+{
+    "version":2,
+    "type":"set_lcd_display",
+    "cfg":{
+        "cfg_type":"pic",
+        "id":0,
+        "x":0,
+        "y":0,
+        "w":320,
+        "h":240,
+        "addr":123456,
+        "alpha":50,
+        "resize":1
+    }
+}
 ```
 
 #### 说明
@@ -531,13 +607,21 @@
 
   - `alpha`: 图片与摄像头图像叠加透明度
 
+  - `resize`: 对图片进行2x2放大,可选参数
+
 <br/>
 <br/>
 
 ### **设置屏幕显示结果**
 
 ```json
-{"version":2,"type":"set_lcd_display_ret","msg":"set lcd display success","code":0,"id":0}
+{
+    "version":2,
+    "type":"set_lcd_display_ret",
+    "msg":"set lcd display success",
+    "code":0,
+    "id":0
+}
 ```
 
 #### 说明
@@ -558,7 +642,11 @@
 ### **删除屏幕显示**
 
 ```json
-{"version":2,"type":"clr_lcd_display","id":0}
+{
+    "version":2,
+    "type":"clr_lcd_display",
+    "id":0
+}
 ```
 
 #### 说明
@@ -571,7 +659,13 @@
 ### **删除屏幕显示结果**
 
 ```json
-{"version":2,"type":"clr_lcd_display_ret","msg":"clr lcd display success","code":0,"id":0}
+{
+    "version":2,
+    "type":"clr_lcd_display_ret",
+    "msg":"clr lcd display success",
+    "code":0,
+    "id":0
+}
 ```
 
 #### 说明
@@ -592,11 +686,37 @@
 ### **设置模块硬件配置**
 
 ```json
-{"version":2,"type":"brd_hard_cfg","cfg":{"get_cfg":0,"cfg_type":"lcd_cam","lcd_flip":0,"lcd_mirror":0,"cam_flip":0,"cam_mirror":0}}
+{
+    "version":2,
+    "type":"brd_hard_cfg",
+    "cfg":{
+        "get_cfg":0,
+        "cfg_type":"lcd_cam",
+        "lcd_flip":0,
+        "lcd_mirror":0,
+        "cam_flip":0,
+        "cam_mirror":0
+    }
+}
 ```
 
 ```json
-{"version":2,"type":"brd_hard_cfg","cfg":{"get_cfg":0,"cfg_type":"uart_relay","port_tx":10,"port_rx":11,"log_tx":5,"log_rx":4,"relay_low": 12,"relay_high": 13,"key":24,"key_dir":1}}
+{
+    "version":2,
+    "type":"brd_hard_cfg",
+    "cfg":{
+        "get_cfg":0,
+        "cfg_type":"uart_relay",
+        "port_tx":10,
+        "port_rx":11,
+        "log_tx":5,
+        "log_rx":4,
+        "relay": 12,
+        "relay_pol": 13,
+        "key":24,
+        "key_dir":1
+    }
+}
 ```
 
 #### 说明
@@ -627,9 +747,9 @@
 
 `log_rx`: 本模块输出日志`RX`引脚, 默认为`4`
 
-`relay_low`: 继电器输出**常低**引脚, 默认为`12`
+`relay`: 继电器输出引脚
 
-`relay_high`: 继电器输出**常高**引脚, 默认为`13`
+`relay_high`: 继电器输出有效电平
 
 `key`: 按键, 默认为`24`
 
@@ -643,7 +763,14 @@
 ### **设置模块硬件配置结果**
 
 ```json
-{"version":2,"type":"brd_hard_cfg_ret","code":1,"msg":"get cfg success","cfg":{}}
+{
+    "version":2,
+    "type":"brd_hard_cfg_ret",
+    "code":1,
+    "msg":"get cfg success",
+    "cfg":{
+    }
+}
 ```
 
 #### 说明
@@ -664,7 +791,21 @@
 ### **设置模块软件配置**
 
 ```json
-{"version":2,"type":"brd_soft_cfg","cfg":{"get_cfg":0,"out_fea":0,"auto_out_fea":0,"out_interval_ms":100,"out_threshold":88.0,"pkt_fix":0,"relay_open_s":2,"port_baud":115200}}
+{
+    "version":2,
+    "type":"brd_soft_cfg",
+    "cfg":{
+        "get_cfg":0,
+        "out_fea":0,
+        "auto_out_fea":0,
+        "out_interval_ms":100,
+        "out_threshold":88.0,
+        "living_threshold": 70.0,
+        "pkt_fix":0,
+        "relay_open_s":2,
+        "port_baud":115200
+    }
+}
 ```
 
 #### 说明
@@ -682,6 +823,8 @@
 `out_threshold`: 人脸比对输出阈值(浮点数, 最大100), 默认为`77.0`
 
 `out_threshold_ir`: [可选] 红外人脸比对输出阈值(浮点数, 最大100), 默认为`88.0`
+
+`living_threshold`: 活体比对阈值（浮点数），默认为`70.0`
 
 `pkt_fix`: 通信协议是否加头尾以及 `CRC16` 校验, 默认为 `0`
 
@@ -715,7 +858,14 @@
 ### **设置模块软件配置结果**
 
 ```json
-{"version":2,"type":"brd_soft_cfg_ret","code":1,"msg":"get cfg success","cfg":{}}
+{
+    "version":2,
+    "type":"brd_soft_cfg_ret",
+    "code":1,
+    "msg":"get cfg success",
+    "cfg":{
+    }
+}
 ```
 
 #### 说明
@@ -733,12 +883,146 @@
 <br/>
 <br/>
 
+### **设置通知陌生人**
+```json
+{
+    "version": 2,
+    "type": "set_notify",
+    "query": 0,
+    "en": 1,
+    "out_fea": 0
+}
+```
 
-## 以下属于扩展功能
+#### 说明
+
+> 这个指令默认不开启, 需要自行编译固件
+
+`query`: 查询当前状态
+
+`en`: `1`使能, `0`禁用
+
+`out_fea`:`1`输出陌生人的特征值,`0`不输出
+
+
+### **设置通知陌生人结果**
+```json
+{
+    "version": 2,
+    "type": "set_notify_ret",
+    "code": 0,
+    "msg": "save cfg success",
+    "en": 0,
+    "out_fea": 0
+}
+```
+
+#### 说明
+
+`msg`: 执行结果
+
+`code`: 代码
+
+  - `0`： 成功
+
+  - `1`： 解析指令失败
+
+  - `2`： 未知错误
+
+
+### **查询UID是否存在**
+```json
+{
+    "version": 2,
+    "type": "query_uid",
+    "uid": "0E3D6BA9000000000000000000000000"
+}
+```
+
+#### 说明
+ `uid` : 需要查询的 uid
+
+### **查询UID是否存在结果**
+```json
+{
+    "version": 2,
+    "type": "query_uid_ret",
+    "code": 0,
+    "msg": "uid exist",
+    "uid_id": 1
+}
+```
+
+#### 说明
+
+`msg`: 执行结果
+
+`uid_id`:  `UID` 存储的`id`, 这个可以配合查询用户信息使用
+
+`code`: 状态码
+
+- 状态码
+  `0`:  `UID` 存在
+
+  `1`:  `UID` 不存在
+
+  `2`: 解析错误
+
+### **设置是否进行人脸识别**
+```json
+{
+    "version": 2,
+    "type": "face_recon",
+    "query_stat": 0,
+    "set_stat": 1,
+    "set_block": 1
+}
+```
+
+#### 说明
+
+`query_stat`: 查询当前人脸识别的状态, `0` 禁用, `1` 使能
+
+`set_stat`: 设置是否进行人脸识别
+
+`set_block`: 设置是否进行图像接收
+
+> block优先级高于stat,如果block为1,stat为0,则不进行识别,但是会显示摄像头图像
+
+### **设置是否进行人脸识别结果**
+
+```json
+{
+    "version": 2,
+    "type": "face_recon_ret",
+    "code": 0,
+    "msg": "set_stat success",
+    "stat": 1,
+    "block": 1
+}
+```
+
+#### 说明
+
+`msg`: 执行结果
+
+`stat`: 当前是否进行人脸识别的状态
+
+`code`: 状态码
+
+- 状态码
+
+  `0`: 成功
+
+  `1`: 解析失败
 
 ### **进行二维码扫码**
 ```json
-{"version":2,"type":"qrscan","time_out_s":20}
+{
+    "version":2,
+    "type":"qrscan",
+    "time_out_s":20
+}
 ```
 
 #### 说明
@@ -747,7 +1031,13 @@
 
 ### **二维码扫码结果**
 ```json
-{"version":2,"type":"qrscan_ret","code":0,"msg":"success","qrcode":"xxxxxx"}
+{
+    "version": 2,
+    "type": "qrscan_ret",
+    "code": 0,
+    "msg": "success",
+    "qrcode": "xxxxxx"
+}
 ```
 
 #### 说明
@@ -768,35 +1058,57 @@
 
   - `3`： 未知错误
 
-### **设置通知陌生人**
+### **恢复出厂设置**
 ```json
-{"version":2,"type":"set_notify","query":0,"en":1,"out_fea":0}
+{
+    "version":2,
+    "type":"restore",
+    "key":"erotser"
+}
 ```
 
 #### 说明
 
-> 这个指令默认不开启, 需要自行编译固件
+无
 
-`query`: 查询当前状态
-
-`en`: `1`使能, `0`禁用
-
-`out_fea`:`1`输出陌生人的特征值,`0`不输出
-
-
-### **设置通知陌生人结果**
+### **恢复出厂设置结果**
 ```json
-{"version":2,"type":"set_notify_ret","code":0,"msg":"save cfg success","en":0,"out_fea":0}
+{
+    "version":2,
+    "type":"restore_ret",
+    "code":0,
+    "msg":"restore board success",
+}
 ```
 
 #### 说明
 
-`msg`: 执行结果
+无
 
-`code`: 代码
 
-  - `0`： 成功
+### **控制设备重启**
+```json
+{
+    "version": 2,
+    "type": "reset",
+    "key": "teser"
+}
+```
 
-  - `1`： 解析指令失败
+#### 说明
 
-  - `2`： 未知错误
+无
+
+### **控制设备重启结果**
+```json
+{
+    "version":2,
+    "type":"restore_ret",
+    "code":0,
+    "msg":"restore board success",
+}
+```
+
+#### 说明
+
+无
