@@ -1,4 +1,4 @@
-# 基于串口通信的人脸识别模块通信协议 `V2.0.1`
+# MF 人脸识别模块通信串口协议（JSON版） `V2.0.1`
 
 ## **修改记录**
 
@@ -6,6 +6,16 @@
 | -------- | ------------ | ------------- |
 | `0.1`   | `2019.09.05`  | 协议版本到 `2`   |
 | `0.1`   | `2020.06.01`  | 添加新的接口   |
+
+## 1、串口通讯约定
+
+| 参数说明   | 默认值 |
+| ---------- | ------ |
+| 波特率     | 115200 |
+| 数据位     | 8      |
+| 奇偶校验位 | 无     |
+| 停止位     | 1      |
+| 数据流控   | 无     |
 
 ## 硬件连接
 
@@ -24,16 +34,7 @@
 ## `Json` 基本格式
 
 ```json
-{
-    "version":$protocol_version,
-    "type": "cmd_type",
-    "code": 0,
-    "msg": "msg",
-    "param": {
-        "xx": "xx",
-        "xx":xx
-    }
-}\r\n
+{"version":$protocol_version,"type":"cmd_type","code":0,"msg":"msg","param":{"xx":"xx","xx":xx}}\r\n
 ```
 
 #### 说明
@@ -52,7 +53,10 @@
 | ---------- | ---------- |
 | [`init`](#初始化完成) | 模块发送初始化完成消息 |
 | [`pkt_prase_failed_ret`](#数据包解析出错信息) | 数据包解析出错信息 |
+| [`ping`](#检查模块) | 检查模块是否存在 |
+| [`pong`](#检查模块结果) | 检查模块是否存在结果 |
 | [`face_info`](#输出人脸信息) | 识别到人脸后输出人脸信息 |
+| [`face_pos`](#检测到人脸)| 检测到人脸(陌生人)坐标信息 |
 | [`cal_pic_fea`](#计算图片人脸特征值) | 计算`Jpeg`图片中的人脸特征值 |
 | [`cal_pic_fea_ret`](#计算图片人脸特征值结果) | 计算`Jpeg`图片中的人脸特征值结果 |
 | [`add_user_by_fea`](#通过特征值添加用户) | 通过特征值添加用户 |
@@ -83,6 +87,8 @@
 | [`restore_ret`](#恢复出厂设置结果) | 恢复出厂设置结果 |
 | [`reset`](#控制设备重启) | 控制设备重启 |
 | [`reset_ret`](#控制设备重启结果) | 控制设备重启结果 |
+| [`pic_stream_cfg`](#图传串口配置) | 图传串口配置 |
+| [`pic_stream_cfg_ret`](#图传串口配置结果) | 图传串口配置结果 |
 
 
 > 以上 `cmd` 可点击跳转
@@ -130,6 +136,32 @@
 
 <br/>
 <br/>
+
+### **检查模块**
+```json
+{
+    "version": 2,
+    "type": "ping"
+}
+```
+
+#### 说明
+
+主机发起ping指令,检测模块是否在线
+
+### **检查模块结果**
+```json
+{
+    "version": 2,
+    "type": "pong",
+    "msg": "i am here",
+    "code": 0
+}
+```
+
+#### 说明
+
+回复固定内容
 
 ### **输出人脸信息**
 
@@ -179,6 +211,43 @@
 <br/>
 <br/>
 
+### **检测到人脸**
+
+```json
+{"version":2,"type":"face_pos","code":0,"msg":"face position","x1":31,"y1":0,"x2":138,"y2":139,"lex":42,"ley":54,"rex":107,"rey":46,"nx":82,"ny":82,"lmx":60,"lmy":119,"rmx":110,"rmy":115,"index":2,"total":1}
+```
+
+#### 说明
+
+`total`: 本次识别中人脸总数
+
+`index`: 本次识别中第 `N` 张人脸(从`0`开始计数)
+
+`x1`: 人脸坐标框左上角 `x`
+
+`y1`: 人脸坐标框左上角 `y`
+
+`x2`: 人脸坐标框右下角 `x`
+
+`y2`: 人脸坐标框右下角 `y`
+
+`lex`: 五点关键点,左眼坐标`x`
+`ley`: 五点关键点,左眼坐标`y`
+
+`rex`: 五点关键点,右眼坐标`x`
+`rey`: 五点关键点,右眼坐标`y`
+
+`nx`: 五点关键点,嘴巴坐标`x`
+`ny`: 五点关键点,嘴巴坐标`y`
+
+`lmx`: 五点关键点,左嘴角坐标`x`
+`lmy`: 五点关键点,左嘴角坐标`y`
+
+`rmx`: 五点关键点,右嘴角坐标`x`
+`rmy`: 五点关键点,右嘴角坐标`y`
+
+> `total`与`index`冲突则以index为准
+
 ### **计算图片人脸特征值**
 
 ```json
@@ -209,16 +278,7 @@
 收到以下返回内容(`code` 为 1)就可以开始发送图片, 必须在`10s`内发送完毕。超时退出接受`jpeg`状态
 
 ```json
-{
-    "version": 2,
-    "type": "cal_pic_fea_ret",
-    "code": 1,
-    "msg": "please start send jpeg image",
-    "info": {
-        "uid": "null",
-        "feature": "null"
-    }
-}\r\n
+{"version":2,"type":"cal_pic_fea_ret","code":1,"msg":"please start send jpeg image","info":{"uid":"null","feature":"null"}}
 ```
 
 > 当 `info` 中的 `code`为 `1` 表示可以开始发送 `Jpeg` 图片
@@ -294,6 +354,7 @@
     "version":2,
     "type":"add_user_by_fea",
     "user":{
+        "name":"B2E2CAD4",
         "uid":"EDE6E800A20000000000000000000000",
         "fea":"feature base64 encode"
     }
@@ -302,7 +363,9 @@
 
 #### 说明
 
- `uid` : 用户的 `uid` 
+`name`: 可选, 名字,支持中文,不超多4个汉字,GB2312编码
+
+`uid` : 用户的 `uid` 
 
 `fea`: 用户人脸特征值
 
@@ -346,8 +409,9 @@
     "version":2,
     "type":"add_user_spec_uid",
     "user":{
+        "name":"B2E2CAD4",
         "uid":"EDE6E800A20000000000000000000000",
-        "time_s":5
+        "time_s":5,
     }
 }
 ```
@@ -356,7 +420,9 @@
 
 > 相当于按键录入用户, 可以指定 `uid` ,会检测用户是否正脸
 
- `uid` : 用户指定新添加用户的 `uid` 
+`name`: 可选, 名字,支持中文,不超多4个汉字,GB2312编码
+
+`uid` : 用户指定新添加用户的 `uid` 
 
 `time_s`: 添加用户超时时间, 默认`5`s,最大值`100`
 
@@ -475,25 +541,7 @@
 ### **查询模块存储人脸信息结果**
 
 ```json
-{
-    "version": 2,
-    "type": "query_face_ret",
-    "code": 0,
-    "msg": "query uid ands feature success",
-    "face": {
-        "total": 2,
-        "start": 0,
-        "end": 1,
-        "info": [
-            {
-                "order": 0,
-                "uid": "22BCD239290000000000000000000000",
-                "feature": "feature bease64 encode"
-            },
-			...
-        ]
-    }
-}
+{"version":2,"type":"query_face_ret","code":0,"msg":"query uid ands feature success","face":{"total":2,"start":0,"end":1,"info":[{"order":0,"uid":"22BCD239290000000000000000000000","feature":"feature bease64 encode"}...]}}
 ```
 
 #### 说明
@@ -575,7 +623,7 @@
 
 字符串显示配置：
 
-  - `id`: 字符串的`id`, 删除时使用
+  - `id`: 字符串的`id`, 删除时使用,范围[0-31]
 
   - `x`: 字符串显示位置的`x`坐标,**注意,`MF1 1.3inch`,`0`需要转换成`40`**
 
@@ -593,7 +641,7 @@
 
 图片显示配置：
 
-  - `id`: 图片的`id`, 删除时使用
+  - `id`: 图片的`id`, 删除时使用,范围[0-31]
 
   - `x`: 图片显示原点`x`,**注意,`MF1 1.3inch`,`0`需要转换成`40`**
 
@@ -798,10 +846,11 @@
         "get_cfg":0,
         "out_fea":0,
         "auto_out_fea":0,
+        "pkt_fix":0,
         "out_interval_ms":100,
         "out_threshold":88.0,
+        "out_threshold_ir": 58.0,
         "living_threshold": 70.0,
-        "pkt_fix":0,
         "relay_open_s":2,
         "port_baud":115200
     }
@@ -885,13 +934,7 @@
 
 ### **设置通知陌生人**
 ```json
-{
-    "version": 2,
-    "type": "set_notify",
-    "query": 0,
-    "en": 1,
-    "out_fea": 0
-}
+{"version":2,"type":"set_notify","query":0,"en":1,"out_fea":0}
 ```
 
 #### 说明
@@ -907,14 +950,7 @@
 
 ### **设置通知陌生人结果**
 ```json
-{
-    "version": 2,
-    "type": "set_notify_ret",
-    "code": 0,
-    "msg": "save cfg success",
-    "en": 0,
-    "out_fea": 0
-}
+{"version":2,"type":"set_notify_ret","code":0,"msg":"save cfg success","en":0,"out_fea":0}
 ```
 
 #### 说明
@@ -932,11 +968,7 @@
 
 ### **查询UID是否存在**
 ```json
-{
-    "version": 2,
-    "type": "query_uid",
-    "uid": "0E3D6BA9000000000000000000000000"
-}
+{"version":2,"type":"query_uid","uid":"0E3D6BA9000000000000000000000000"}
 ```
 
 #### 说明
@@ -944,13 +976,7 @@
 
 ### **查询UID是否存在结果**
 ```json
-{
-    "version": 2,
-    "type": "query_uid_ret",
-    "code": 0,
-    "msg": "uid exist",
-    "uid_id": 1
-}
+{"version":2,"type":"query_uid_ret","code":0,"msg":"uid exist","uid_id":1}
 ```
 
 #### 说明
@@ -970,13 +996,7 @@
 
 ### **设置是否进行人脸识别**
 ```json
-{
-    "version": 2,
-    "type": "face_recon",
-    "query_stat": 0,
-    "set_stat": 1,
-    "set_block": 1
-}
+{"version":2,"type":"face_recon","query_stat":0,"set_stat":1, "set_block":1}
 ```
 
 #### 说明
@@ -992,14 +1012,7 @@
 ### **设置是否进行人脸识别结果**
 
 ```json
-{
-    "version": 2,
-    "type": "face_recon_ret",
-    "code": 0,
-    "msg": "set_stat success",
-    "stat": 1,
-    "block": 1
-}
+{"version":2,"type":"face_recon_ret","code":0,"msg":"set_stat success","stat":1, "block":1}
 ```
 
 #### 说明
@@ -1031,13 +1044,7 @@
 
 ### **二维码扫码结果**
 ```json
-{
-    "version": 2,
-    "type": "qrscan_ret",
-    "code": 0,
-    "msg": "success",
-    "qrcode": "xxxxxx"
-}
+{"version":2,"type":"qrscan_ret","code":0,"msg":"success","qrcode":"xxxxxx"}
 ```
 
 #### 说明
@@ -1088,11 +1095,7 @@
 
 ### **控制设备重启**
 ```json
-{
-    "version": 2,
-    "type": "reset",
-    "key": "teser"
-}
+{"version":2,"type":"reset","key":"teser"}
 ```
 
 #### 说明
@@ -1105,10 +1108,55 @@
     "version":2,
     "type":"restore_ret",
     "code":0,
-    "msg":"restore board success",
+    "msg":"restore board success"
 }
 ```
 
 #### 说明
 
 无
+
+### **图传串口配置**
+
+```json
+{
+    "version":2,
+    "type":"pic_stream_cfg",
+    "query":0,
+    "tx":30,
+    "baud":921600
+}
+```
+
+##### 说明
+
+`query`: 0,设置;1,查询
+
+`baud`: 输出图像使用的波特率
+
+`tx`: 输出图像的引脚,设置为`255`禁用图传功能
+
+### **图传串口配置结果**
+
+```json
+{
+    "version":2,
+    "type":"pic_stream_cfg_ret",
+    "code":0,
+    "msg":"config pic stream success",
+    "tx":30,
+    "baud":921600
+}
+```
+
+##### 说明
+
+`msg`: 执行结果
+
+`code`: 代码
+
+  - `0`： 成功
+
+  - `1`： 更新配置失败
+
+  - `2`: 指令未更新配置

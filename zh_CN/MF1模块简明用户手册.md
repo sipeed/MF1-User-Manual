@@ -22,9 +22,31 @@
 
 ## **硬件资源简介**
 
-<center class="half">
-<img src="assests/front.png" width = 50% /><img src="assests/bottom.jpg" width = 50% />
-</center>
+> 旧款
+
+<table>
+    <tr>
+        <td>
+        <img src="../assets/mf_module/mf1_front_v1.png" width="500"/>
+        </td>
+        <td>
+            <img src="../assets/mf_module/mf1_bottom_v1.jpg" width="500"/>
+        </td>
+    </tr>
+</table>
+
+> 新款
+
+<table>
+    <tr>
+        <td>
+        <img src="../assets/mf_module/mf1_front_v2.png" width="500"/>
+        </td>
+        <td>
+            <img src="../assets/mf_module/mf1_bottom_v2.png" width="500"/>
+        </td>
+    </tr>
+</table>
 
 * CPU : **RISC-V** 双核 64bit、内置FPU、频率 400Mhz-500Mhz
 * 图像识别：活体识别
@@ -34,7 +56,7 @@
 * 其他外设：电容触摸按钮/支持3W扬声器/MEMS麦克风/SD NAND/RGB LED
 * 无线功能(可选) : 支持 2.4G 802.11.b/g/n、SPI 连接
 
-* [淘宝购买](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-21231188695.25.27ba52b1bsusf7&id=599138281058)
+* [淘宝购买: sipeed.taobao.com](https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-21231188695.25.27ba52b1bsusf7&id=599138281058)
 
 <div STYLE="page-break-after: always;"></div>
 
@@ -92,12 +114,12 @@
 
 * Q: 怎么更新固件
 
-  A: 请参考[更新MaixPy固件](https://maixpy.sipeed.com/zh/get_started/upgrade_firmware.html)，在板子选型中请选择`Sipeed Maix Bit With Mic`，出现两个串口的时候，选择第一个串口
+  A: 请参考 [更新MaixPy固件](https://maixpy.sipeed.com/zh/get_started/upgrade_firmware.html)，在板子选型中请选择`Sipeed Maix Bit With Mic`，出现两个串口的时候，选择第一个串口
 
 * Q: 使用过程中有什么需要注意的
 
-  A: 上电后请握住USB插头部分（防止误触触摸按键）
+  A: 上电后请握住 USB 插头部分（防止误触触摸按键）
 
 * Q: 供电方式
 
-  A: 模块可以使用USB5V供电，或者外接底板使用电池或者电源
+  A: 模块可以使用 USB5V 供电，或者外接底板使用电池或者电源

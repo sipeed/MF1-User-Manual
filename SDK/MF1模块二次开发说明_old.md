@@ -77,7 +77,7 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 ## 下载固件
 
 <center class="half">
-<img src="assests/kflash_gui.jpg" height = 50% width = 80% />
+<img src="assets/kflash_gui.jpg" height = 50% width = 80% />
 </center>
 
 用户可以使用`kflash_gui`来下载程序
@@ -103,7 +103,7 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 **更新`esp8285`固件, 需要将使能引脚打开, 烧录[预编译好的固件](http://dl.sipeed.com/MAIX/HDK/factory_firmware/Ai_Module_MF1_lib_wifi_on.bin)来使能`wifi`**
 
 <center class="half">
-<img src="assests/update_esp8285.jpg" height = 50% width = 50% />
+<img src="assets/update_esp8285.jpg" height = 50% width = 50% />
 </center>
 
 ①：短接这个触点到`GND`然后上电
@@ -117,7 +117,7 @@ cmake ../../../ -DTOOLCHAIN=/opt/riscv-toolchain/bin && make
 `flash_download_tools`下载选项
 
 <center class="half">
-<img src="assests/flash_download_tools.png" height = 50% width = 60% />
+<img src="assets/flash_download_tools.png" height = 50% width = 60% />
 </center>
 
 〇：注意选择`ESP8285`下载, **千万不要**选择了`ESP8266`
