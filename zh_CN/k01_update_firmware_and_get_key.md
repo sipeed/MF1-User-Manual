@@ -59,6 +59,10 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 |release.md                  |                                         | 版本更新记录 |
 +
 
+注意：
+
+MF1 TO MF2(即 MF1 外接 2.4/2.8 寸屏幕), USB Type-C 转串口(IO4:TX,RX:IO5)为日志信息输出串口，
+IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 
 ## MF1 固件更新说明
