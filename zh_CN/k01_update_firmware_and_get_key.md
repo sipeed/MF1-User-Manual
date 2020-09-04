@@ -2,11 +2,64 @@
 
 ## 概述
 
-在使用 MF 系列人脸识别模块过程中, 由于开发与生产周期的原因，并无法保证开发者拿到手上就是最新的版本的固件（期间开发人员修复了某些 bug），所以建议上手之后确认固件版本。
+在使用 MF 系列人脸识别模块过程中, 由于开发与生产周期的原因，并无法保证开发者拿到手上就是最新的版本的固件（期间开发人员修复了某些 bug,或者新增了指令），所以建议上手之后确认固件版本。
 
 - 获取版本信息方法（待更新）
 
     TODO: 获取版本信息方法
+
+注意！！！
+
+完整烧录步骤：
+
+1. 烧录 key_gen，获取机器码，发送到 support@sipeed.com, 获取对应人脸模型文件
+2. 烧录对应板型固件(选择自己需要的协议: 出厂默认 json, 可选 hex 版本)
+3. 烧录字体文件
+4. 烧录图片资源(可选中英文，可自己替换打包)
+5. 烧录第一步获取的人脸模型文件
+6. 烧录清除配置文件(或者使用 kflash_gui 清除板级配置信息)
+
+
+## 固件版本说明
+
+MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Module](https://dl.sipeed.com/MAIX/factory_firmware/MF_Module)
+
+- 烧录固件时注意 区分摄像头方向
+
+| 描述 | 摄像头丝印 | 说明 |
+| --- | --- | --- |
+| 横向（H）| <img src="./assets/camera/camera_dual_h.png" widt="600" alt="横向双摄">| |
+| 竖向（V）| <img src="./assets/camera/camera_dual_v.png" widt="600" alt="竖向双摄">| |
+
+
+
+
+> 烧录固件之前，一定要确认选择的固件和自己的**板型一致**，
+烧录之后建议均擦除下**板级配置信息**
+
+| 文件名 | 适用板型 | 说明 |
+| --- | --- | --- |
+|PROJ_MF1H_TO_MF2H_bin.bin   | MF1 转 2.4/2.8 寸, 摄像头方向: 横向(H)   | HEX 协议 |
+|PROJ_MF1H_TO_MF2H_json.bin  | MF1 转 2.4/2.8 寸, 摄像头方向: 横向(H)   | JSON 协议 |
+|   |   |   |
+|PROJ_MF1H_bin.bin           | MF1 1.3 寸 IPS, 摄像头方向: 横向(H)      | HEX 协议 |
+|PROJ_MF1H_json.bin          | MF1 1.3 寸 IPS, 摄像头方向: 横向(H)      | JSON 协议 |
+|   |   |   |
+|PROJ_MF1V_TO_MF2V_bin.bin   | MF1 转 2.4/2.8 寸, 摄像头方向: 竖向(V)   | HEX 协议 |
+|PROJ_MF1V_TO_MF2V_json.bin  | MF1 转 2.4/2.8 寸, 摄像头方向: 竖向(V)   |JSON 协议 |
+|   |   |   |
+|PROJ_MF1V_bin.bin           | MF1 1.3 寸 IPS, 摄像头方向: 竖向(V)      | HEX 协议 |
+|PROJ_MF1V_json.bin          | MF1 1.3 寸 IPS, 摄像头方向: 竖向(V)      | JSON 协议 |
+|   |   |   |
+|PROJ_MF2V_bin.bin           | MF2 2.4/2.8 寸, 摄像头方向: 竖向(V)      | HEX 协议 |
+|PROJ_MF2V_json.bin          | MF2 2.4/2.8 寸, 摄像头方向: 竖向(V)      | JSON 协议 |
+|   |   |   |
+|protocol_bin.md             |                                         | BIN(HEX) 原始协议文件 |
+|protocol_json.md            |                                         | JSON 原始协议文件 |
+|release.md                  |                                         | 版本更新记录 |
++
+
+
 
 ## MF1 固件更新说明
 
@@ -29,6 +82,9 @@
 <div STYLE="page-break-after: always;"></div>
 
 
+## 怎么获取 Key(机器码)
+
+在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到 <Support@sipeed.com>
 
 在使用过程中, 如果模块的模型丢失或需要更换, 获取 **Key(机器码)** 及烧录固件流程如下
 
@@ -38,10 +94,6 @@
 - 4.烧录 support 邮箱发送的人脸模型(有横竖屏两种模型，**不一定两个都可以用**，请自行尝试)
 
 ---
-
-## 怎么获取 Key(机器码)
-
-在使用过程中,如果模块的模型丢失或需要更换,需要发送 `Key` 到 <Support@sipeed.com>
 
 推荐发送邮件格式如下:
 
@@ -67,26 +119,3 @@
 <center class="half">
 <img src="assets/how_to_get_key.png" height = 50% width = 80% />
 </center>
-
-
-
----
-
-## 固件版本说明
-
-MF1 下载连接: [https://cn.dl.sipeed.com/MAIX/SDK/](https://cn.dl.sipeed.com/MAIX/SDK/)
-
-<center class="half">
-<img src="assets/download_mf1_firmware.png" height = 50% width = 80% />
-</center>
-
-
-不同固件版本说明如下:
-
-| 固件文件名称 | 描述 |
-| --- | --- |
-| elf_maixpy_xxx.7z | *.elf |
-| mf1_clr1_xxx.bin | 长按键, 清除人脸特征值
-| mf1_clr0_xxx.bin | 长按键, 不清除人脸特征值
-| mf1_key_reset_xxx.bin | 长按键, 无任何操作 |
-| mf1_2_4_inch_xxx.bin | 针对 2.4/2.8' 横屏 LCD, 烧录之后再烧录清除配置文件 [fix_flash_cfg.kfpkg](https://cn.dl.sipeed.com/MAIX/SDK/MF1_SDK_Prebuild/dev/fix_flash_cfg.kfpkg)
