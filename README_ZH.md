@@ -24,9 +24,37 @@
 
 ## MF 板型一览
 
-<table border="3">
+
+### MF1 旧版(V1)
+
+！旧版固件功能已不再继续维护
+
+<table border="1">
     <tr>
-        <th colspan=4>MF1 V2 版</th>
+        <th colspan=3>MF1(V1) 版</th>
+    </tr>
+    <tr>
+        <td widtd="100">描述</td>
+        <td >正面视图</td>
+        <td>背面视图（带NAND）</td>
+    </tr>
+    <tr>
+        <td width="100">MF1 1.3寸屏</td>
+        <td>
+            <img src="./assets/mf_module/mf1_front_v1.png" height="250" alt="MF1 正面">
+        </td>
+        <td>
+            <img src="./assets/mf_module/mf1_bottom_v1(nand).png" height="250" alt="MF1(NAND Flash) 背面视图">
+        </td>
+    </tr>
+</table>
+
+
+### MF1 新版(V2)
+
+<table border="1">
+    <tr>
+        <th colspan=4>MF1(V2) 版</th>
     </tr>
     <tr>
         <td  width="100">描述</td>
@@ -37,28 +65,28 @@
     <tr>
         <td width="100">MF1 1.3寸屏</td>
         <td>
-            <img src="./assets/mf_module/mf1_front_v2.png" widt="600" alt="MF1 正面">
+            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 正面">
         </td>
         <td>
-            <img src="./assets/mf_module/mf1_bottom_v2.png" widt="600" alt="MF1 背面视图">
+            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 背面视图">
         </td>
         <td>
-            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" widt="600" alt="MF1(NAND Flash) 背面视图">
+            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) 背面视图">
         </td>
     </tr>
     <tr>
         <td>MF1 TO MF2 2.4/2.8寸屏</td>
         <td>
             <br> TODO: 图片为 MF1 1.3',待更新</br>
-            <img src="./assets/mf_module/mf1_front_v2.png" widt="600" alt="MF1 正面">
+            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 正面">
         </td>
         <td>
             <br> TODO: 图片为 MF1 1.3',待更新</br>
-            <img src="./assets/mf_module/mf1_bottom_v2.png" widt="600" alt="MF1 背面视图">
+            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 背面视图">
         </td>
         <td>
             <br> TODO: 图片为 MF1 1.3',待更新</br>
-            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" widt="600" alt="MF1(NAND Flash) 背面视图">
+            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) 背面视图">
         </td>
     </tr>
 </table>

@@ -28,11 +28,8 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 
 | 描述 | 摄像头丝印 | 说明 |
 | --- | --- | --- |
-| 横向（H）| <img src="../assets/camera/camera_dual_h.png" widt="600" alt="横向双摄">| |
-| 竖向（V）| <img src="../assets/camera/camera_dual_v.png" widt="600" alt="竖向双摄">| |
-
-
-
+| 横向（H）| <img src="../assets/camera/camera_dual_h.png" height="200" alt="横向双摄">| |
+| 竖向（V）| <img src="../assets/camera/camera_dual_v.png" height="200" alt="竖向双摄">| |
 
 > 烧录固件之前，一定要确认选择的固件和自己的**板型一致**，
 烧录之后建议均擦除下**板级配置信息**
@@ -57,9 +54,8 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 |protocol_bin.md             |                                         | BIN(HEX) 原始协议文件 |
 |protocol_json.md            |                                         | JSON 原始协议文件 |
 |release.md                  |                                         | 版本更新记录 |
-+
 
-注意：
++ 注意：
 
 MF1 TO MF2(即 MF1 外接 2.4/2.8 寸屏幕), USB Type-C 转串口(IO4:TX,RX:IO5)为日志信息输出串口，
 IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
@@ -68,7 +64,7 @@ IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 ## MF1 固件更新说明
 
 <center class="half">
-<img src="../assets/kflash_gui.png" height = 50% width = 80% />
+<img src="../assets/kflash_gui.png" height ="500"/>
 </center>
 
 用户可以使用 [`kflash_gui` (https://github.com/sipeed/kflash_gui/releases)](https://github.com/sipeed/kflash_gui/releases) 来下载程序
