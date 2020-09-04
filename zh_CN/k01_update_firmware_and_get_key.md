@@ -28,8 +28,8 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 
 | 描述 | 摄像头丝印 | 说明 |
 | --- | --- | --- |
-| 横向（H）| <img src="./assets/camera/camera_dual_h.png" widt="600" alt="横向双摄">| |
-| 竖向（V）| <img src="./assets/camera/camera_dual_v.png" widt="600" alt="竖向双摄">| |
+| 横向（H）| <img src="../assets/camera/camera_dual_h.png" widt="600" alt="横向双摄">| |
+| 竖向（V）| <img src="../assets/camera/camera_dual_v.png" widt="600" alt="竖向双摄">| |
 
 
 
@@ -121,5 +121,5 @@ IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 轻点 `DTR` ,再松开,即可使模块复位,看到启动信息
 
 <center class="half">
-<img src="assets/how_to_get_key.png" height = 50% width = 80% />
+<img src="../assets/how_to_get_key.png" height = 50% width = 80% />
 </center>
