@@ -20,6 +20,34 @@
 6. 烧录清除配置文件(或者使用 kflash_gui 清除板级配置信息)
 
 
+对应附件 > 点这里 [firmware](../firmware)
+
+固件为 `bin` 格式，烧录地址为 `0x0`
+
+其他资源文件（字体资源，图片资源）均为 kfpkg，使用 kflash_gui 烧录不需要指定烧录地址
+
+```shell
+.
+├── 2020_09_02-std_v113-0-ge976bea7 # 各个版本差异请看 [固件版本说明]
+│   ├── PROJ_MF1H_TO_MF2H_bin.bin
+│   ├── PROJ_MF1H_TO_MF2H_json.bin
+│   ├── PROJ_MF1H_bin.bin
+│   ├── PROJ_MF1H_json.bin
+│   ├── PROJ_MF1V_TO_MF2V_bin.bin
+│   ├── PROJ_MF1V_TO_MF2V_json.bin
+│   ├── PROJ_MF1V_bin.bin
+│   ├── PROJ_MF1V_json.bin
+│   ├── PROJ_MF2V_bin.bin
+│   ├── PROJ_MF2V_json.bin
+│   ├── protocol_bin.md
+│   ├── protocol_json.md
+│   └── release.md
+└── resource
+    ├── 3.font.kfpkg # 字体资源
+    ├── 4.pic_zh.kfpkg # 图片资源
+    └── 6.fix_cfg.kfpkg # 清除固件配置，烧录恢复出厂配置（现建议使用 kflash_gui 清除板级配置）
+```
+
 ## 固件版本说明
 
 MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Module](https://dl.sipeed.com/MAIX/factory_firmware/MF_Module)
@@ -33,6 +61,7 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 
 > 烧录固件之前，一定要确认选择的固件和自己的**板型一致**，
 烧录之后建议均擦除下**板级配置信息**
+
 
 | 文件名 | 适用板型 | 说明 |
 | --- | --- | --- |
