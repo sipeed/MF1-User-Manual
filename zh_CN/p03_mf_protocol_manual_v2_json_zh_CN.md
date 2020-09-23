@@ -37,6 +37,8 @@ IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 2. 由于固件中为了节省串口数据缓存空间，josn 协议指令，不包含空格，建议测试时使用 https://www.json.cn/# 该网站对指令进行校验，压缩（去除空格）
 
+![Format json](../assets/tools/format_json.png)
+
 <div STYLE="page-break-after: always;"></div>
 
 ## `Json` 基本格式
