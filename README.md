@@ -10,6 +10,8 @@ MF Face Recognition Module User Manual
 - [`MF` 模块通用 HEX 协议](./zh_CN/p02_mf_protocol_manual_v2_hex_zh_CN.md)
 - [`MF` 模块通用 JSON 协议](./zh_CN/p03_mf_protocol_manual_v2_json_zh_CN.md)
 - [MF1 固件更新说明(与机器码 key 获取说明) ](./zh_CN/k01_update_firmware_and_get_key.md)
+- [MF Sipeed 串口调试助手使用说明](./zh_CN/t01_mf_sipeed_serail_port_tools.md)
+
 
 ## 关于 MF 人脸识别模组
 
