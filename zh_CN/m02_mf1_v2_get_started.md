@@ -2,15 +2,15 @@
 
 本文目录：
 
-- [**MF1(V2)** 模块快速上手说明](## MF1(V2)模块快速上手说明)
-  - [驱动,调试工具下载](#下载&&安装必备软件)
-  - [安装 USB 驱动](##\ 安装\ USB\ 驱动)
-  - [硬件接口说明](#硬件接口说明)
-- [检查版本固件并更新](#检查版本固件并更新)
-- [串口通讯协议](#串口通讯协议)
-  - [人脸录入与识别](#人脸录入与识别)
+- [MF1(V2)人脸识别模块外观一览](##MF1(V2)\ 人脸识别模块外观一览)
+  - [驱动,调试工具下载](##下载&&安装必备软件)
+  - [安装USB驱动](##安装\ USB\ 驱动)
+  - [硬件接口说明](##硬件接口说明)
+- [检查版本固件并更新](##检查版本固件并更新)
+- [串口通讯协议](##串口通讯协议)
+  - [人脸录入与识别](##人脸录入与识别)
 
-MF1(V2) 人脸识别模块外观一览
+## MF1(V2) 人脸识别模块外观一览
 
 <table border="3">
     <tr>
@@ -41,6 +41,70 @@ MF1(V2) 人脸识别模块外观一览
 ## MF1(V2)模块快速上手说明
 
 用户拿到 MF1, 先使用 USB Type-C 数据线给 MF1 上电，点亮屏幕确认板子能正常工作。
+
+## 下载&&安装必备软件
+
+在使用 MF1 过程中建议安装的软件有：
+
+- 串口调试助手： [XCOM_V2.6.exe](./tools/serail_port_tools/XCOM\ V2.6.exe)
+
+![Sipeed MF 模块调试助手](../assets/tools/xcom.png)
+
+
+- [Sipeed MF 模块调试助手](./tools/serail_port_tools/serail_tools_backen.7z)
+
+![Sipeed MF 模块调试助手](../assets/tools/sipeed_serail_tools_backen.png)
+
+## 硬件接口说明
+
+<table border="1">
+    <tr>
+        <th colspan=4>MF1(V2) 版</th>
+    </tr>
+    <tr>
+        <td  width="100">描述</td>
+        <td>正面视图</td>
+        <td>背面视图（不带NAND）</td>
+        <td>背面视图（带NAND）</td>
+    </tr>
+    <tr>
+        <td width="100">MF1 1.3寸屏</td>
+        <td>
+            <img src="../assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 正面">
+        </td>
+        <td>
+            <img src="../assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 背面视图">
+        </td>
+        <td>
+            <img src="../assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) 背面视图">
+        </td>
+    </tr>
+</table>
+
+
+MF1 模块预留两排 IO 接口，IO 接口描述如下：
+
+
+<table border="1">
+    <tr>
+        <th colspan=4>MF1(V2) 版</th>
+    </tr>
+    <tr>
+        <td  width="100">描述</td>
+        <td>引脚原理图</td>
+    </tr>
+    <tr>
+        <td width="100">MF1</td>
+        <td>
+            <img src="../assets/mf_module/mf1_pin_map.png" width="600" alt="MF1 正面">
+            <a href="https://dl.sipeed.com/MAIX/HDK/Sipeed-MF1/MF1(V1.2)(2713)">MF1 原理图下载</a>
+        </td>
+    </tr>
+</table>
+
+
+
+
 
 ## 安装 USB 驱动
 
