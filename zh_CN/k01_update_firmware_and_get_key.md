@@ -62,7 +62,7 @@ MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Mod
 | 竖向（V）| <img src="../assets/camera/camera_dual_v.png" height="200" alt="竖向双摄">| |
 
 > 烧录固件之前，一定要确认选择的固件和自己的**板型一致**，
-烧录之后建议均擦除下**板级配置信息**
+烧录之后建议均[**擦除板级配置信息**]()
 
 
 | 文件名 | 适用板型 | 说明 |
@@ -112,6 +112,11 @@ IO10(TX)， IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 <div STYLE="page-break-after: always;"></div>
 
+## 擦除板级配置信息
+
+如果不小心烧录错误版本的固件，需要擦除下配置信息
+
+![擦除配置信息](../assets/kflash/erase_config_info.png)
 
 ## 怎么获取 Key（机器码）
 
@@ -119,7 +124,7 @@ IO10(TX)， IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 在使用过程中， 如果模块的模型丢失或需要更换， 获取 **Key（机器码）** 及烧录固件流程如下
 
-- 1.烧录 key
+- 1.烧录 key_gen.bin (固件用于生成机器码)
 - 2.发送 key 到 support 邮箱（负责人员开发任务重，请耐性等待回复[可能需要一天]）
 - 3.烧录 MF1 固件
 - 4.烧录 support 邮箱发送的人脸模型
