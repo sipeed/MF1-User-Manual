@@ -362,7 +362,7 @@ You can use `XCOM` or other serial port assistant's file sending function to loa
 
 #### Description
 
-`name`: Optional, name, support Chinese, no more than 4 Chinese characters, GB2312 code
+`name`: Optional, name, support Chinese, no more than 4 Chinese characters, GB2312 code(Hex format)
 
 `uid`: the user's `uid`
 
