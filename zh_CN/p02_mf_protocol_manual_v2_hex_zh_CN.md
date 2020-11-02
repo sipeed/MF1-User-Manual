@@ -4,10 +4,11 @@
 
 | 文档版本 | 固件版本                              | 编写/修改说明                     | 修改人 | 修订日期 | 备注     |
 | -------- | ------------------------------------- | --------------------------------- | ------ | -------- | -------- |
-| 1.0.0    | 2020_07_02-std_v101-0-g43ecb42a-dirty | 创建文档                          | 柯钿爽 | 20200720 | 首次创建 |
-| 1.0.4    | 2020_07_22-std_v104-0-g724e39ec-dirty | 增加 reboot 指令                  | 柯钿爽 | 20200722 |          |
-| 1.0.5    | 2020_07_23-std_v105-0-ge0a98a98-dirty | 添加soft/hard 设置指令            | 柯钿爽 | 20200724 |          |
-| 1.0.8    | 2020_07_29-std_v108-0-gb1d9ba4e       | Uartp Json & Bin 添加指令设置图传 | 柯钿爽 | 20200728 |          |
+| 1.0.0    | 2020_07_02-std_v101-0-g43ecb42a-dirty | 创建文档                          | TsMax | 20200720 | 首次创建 |
+| 1.0.4    | 2020_07_22-std_v104-0-g724e39ec-dirty | 增加 reboot 指令                  | TsMax | 20200722 |          |
+| 1.0.5    | 2020_07_23-std_v105-0-ge0a98a98-dirty | 添加soft/hard 设置指令            | TsMax | 20200724 |          |
+| 1.0.8    | 2020_07_29-std_v108-0-gb1d9ba4e       | Uartp Json & Bin 添加指令设置图传 | TsMax | 20200728 |          |
+| 1.0.9    | 2020_11_02-std_v115-0-g1f620577       | 修复陌生人识别 | TsMax | 20201102 |          |
 |          |                                       |                                   |        |          |          |
 
 ----
@@ -54,8 +55,10 @@ IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 5. 本协议支持每人最多 8 张人脸模板。
 6. 改变波特率的指令的(从机)应答是使用原波特率应答。
 7. person_id 为一字节，0xff 占用为特殊用途，所以最多存储 255 人。
+   - 使用  person_id + face_idx 可以将人数扩充为 2040人（255x8）
 8. CRC16 校验格式为**CRC-16/XMODEM**，校验内容为`命令码+命令参数`
 9. 注意模块任何时候返回的指令都会计算校验，主机可选校验：
+
 
 **备注：**
 
@@ -67,39 +70,38 @@ IO10(TX), IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 ## 3.  指令列表
 
-| 命令            | 命令码(值) | 说明                   |
-| --------------- | ---------- | ---------------------- |
-| BINCMD_PING     | 0x00       | ping 指令              |
-| BINCMD_ABORT    | 0x01       | 中断当前执行指令       |
-| BINCMD_INFO     | 0x02       | 查询板卡信息           |
-| BINCMD_BAUD     | 0x03       | 设置波特率             |
-| BINCMD_RECORD   | 0x04       | 开始录入人脸           |
-| BINCMD_CONFIRM  | 0x05       | 确认录入人脸           |
-| BINCMD_DEL      | 0x06       | 删除指定ID人脸         |
-| BINCMD_FR_RUN   | 0x07       | 开始/停止运行人脸识别  |
-| BINCMD_FR_RES   | 0x08       | 模块返回的人脸识别结果 |
-|                 |            |                        |
-| BINCMD_FR_GATE  | 0x09       | 设置人脸识别门限       |
-| BINCMD_LED      | 0x0a       | 设置LED灯状态          |
-| BINCMD_RELAY    | 0x0b       | 设置继电器状态         |
-| BINCMD_RSTCFG   | 0x0c       | 复位板级配置到默认     |
-| BINCMD_IMPORT   | 0x10       | 导入人脸信息           |
-| BINCMD_FCNT     | 0x11       | 获取人脸库里的数量     |
-| BINCMD_FLIST    | 0x12       | 返回人脸列表           |
-| BINCMD_FTR      | 0x13       | 返回人脸特征值         |
-| BINCMD_FTRALL   | 0x14       | 导出所有人脸特征值     |
-| BINCMD_QRSCAN   | 0x15       | 开启二维码扫码         |
-| BINCMD_QRRES    | 0x16       | 二维码扫码结果         |
-|                 |            |                        |
-| BINCMD_FACEPOS  | 0x17       | 人脸坐标信息           |
-| BINCMD_PICADD   | 0x20       | 增加在画面显示的图片   |
-| BINCMD_STRADD   | 0x21       | 增加在画面显示的字符   |
-| BINCMD_DISDEL   | 0x22       | 清除界面上显示的图片   |
-| BINCMD_REBOOT   | 0x23       | 重启设备               |
-| BINCMD_SOFT_CFG | 0x24       | 板子配置               |
-| BINCMD_HARD_CFG | 0x25       | 板子硬件IO配置         |
-| BINCMD_INVALID  | 0xff       | 非法指令               |
-
+| 命令            | 命令码(值) | 指令回复 |说明                   |
+| --------------- | ---------- | --- |---------------------- |
+| BINCMD_PING     | 0x00       | 指令 | ping 指令              |
+| BINCMD_ABORT    | 0x01       | 指令 |  中断当前执行指令       |
+| BINCMD_INFO     | 0x02       | 指令 |  查询板卡信息           |
+| BINCMD_BAUD     | 0x03       | 指令 |  设置波特率             |
+| BINCMD_RECORD   | 0x04       | 指令 |  开始录入人脸           |
+| BINCMD_CONFIRM  | 0x05       | 指令 |  确认录入人脸           |
+| BINCMD_DEL      | 0x06       | 指令 |  删除指定 ID 人脸       |
+| BINCMD_FR_RUN   | 0x07       | 指令 |  开始/停止运行人脸识别  |
+| BINCMD_FR_RES   | 0x08       | 回复 |  模块返回的人脸识别结果 |
+|                 |            |  |                         |
+| BINCMD_FR_GATE  | 0x09       | 指令 |  设置人脸识别门限       |
+| BINCMD_LED      | 0x0a       | 指令 |  设置LED灯状态          |
+| BINCMD_RELAY    | 0x0b       | 指令 |  设置继电器状态         |
+| BINCMD_RSTCFG   | 0x0c       | 指令 |  复位板级配置到默认     |
+| BINCMD_IMPORT   | 0x10       | 指令 |  导入人脸信息           |
+| BINCMD_FCNT     | 0x11       | 指令 |  获取人脸库里的数量     |
+| BINCMD_FLIST    | 0x12       | 指令 |  返回人脸列表           |
+| BINCMD_FTR      | 0x13       | 指令|  返回人脸特征值         |
+| BINCMD_FTRALL   | 0x14       | 指令 |  导出所有人脸特征值     |
+| BINCMD_QRSCAN   | 0x15       | 指令 |  开启二维码扫码         |
+| BINCMD_QRRES    | 0x16       | 指令 |  二维码扫码结果         |
+|                 |            |  |                         |
+| BINCMD_FACEPOS  | 0x17       | 指令 |  人脸坐标信息           |
+| BINCMD_PICADD   | 0x20       | 指令 |  增加在画面显示的图片   |
+| BINCMD_STRADD   | 0x21       | 指令 |  增加在画面显示的字符   |
+| BINCMD_DISDEL   | 0x22       | 指令 |  清除界面上显示的图片   |
+| BINCMD_REBOOT   | 0x23       | 指令 |  重启设备               |
+| BINCMD_SOFT_CFG | 0x24       | 指令 |  板子配置               |
+| BINCMD_HARD_CFG | 0x25       | 指令 |  板子硬件IO配置         |
+| BINCMD_INVALID  | 0xff       | 指令 |  非法指令               |
 
 
 串口错误码列表
@@ -117,10 +119,10 @@ typedef enum
     BINERR_NOMEM   = 7,
     BINERR_NOID    = 8,
     BINERR_RECOK   = 9,
-    BINERR_RECTO   = 10, //timeout
-    BINERR_RECFULL = 11, //flash full
-    BINERR_RECID   = 12, //录入使用的ID错误
-    BINCMD_QRTO    = 13, //扫码超时
+    BINERR_RECTO   = 10, // timeout
+    BINERR_RECFULL = 11, // flash full
+    BINERR_RECID   = 12, // 录入使用的ID错误
+    BINCMD_QRTO    = 13, // 扫码超时
     BINCM_POP_FAILE= 14,
 }mfbin_err_t;
 ```
@@ -260,7 +262,7 @@ typedef enum
 
 **说明：**
 
-1. 人脸入指令
+1. 人脸录入指令
 2. arg= **person_id**, **face_idx**, **timeout_s**, **confirm_flag**
 
 | arg | 取值 |  说明 |
@@ -856,7 +858,7 @@ typedef enum
 
 1. 读取/设置软件配置
 
-2. arg=get_cfg,cam_flip,cam_mirror,lcd_flip,lcd_mirro,uartp_out_fea,resv,resv,resv,uartp_out_interval_ms
+2. arg=get_cfg,cam_flip,cam_mirror,lcd_flip,lcd_mirro,uartp_out_fea,uartp_auto_out_fea,uartp_en_stranger,uartp_en_stranger,uartp_out_interval_ms
 
    当 get_cfg = 0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9
 
@@ -865,11 +867,13 @@ typedef enum
    | arg                           | 取值 | 说明                                                         |
    | ----------------------------- | ---- | ------------------------------------------------------------ |
    | get_cfg(1 byte)               | *    | 当 get_cfg = 0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9<br />当 get_cfg != 0x01 时表示进行设置,模块回复设置结果,0x00表示成功,其他值为失败 |
-   | cam_flip(1 byte)              | *    | 配置摄像头水平翻转                                           |
-   | cam_mirror(1 byte)            | *    | 配置摄像头垂直镜像                                           |
-   | lcd_flip(1 byte)              | *    | 配置 lcd 水平翻转                                            |
-   | lcd_mirro(1 byte)             | *    | 配置 lcd 垂直镜像                                            |
-   | uartp_out_fea(1 byte)         | *    | 配置输出人脸信息                                             |
+   | cam_flip(1 byte)              | *    | 0x01,启用摄像头水平翻转                                           |
+   | cam_mirror(1 byte)            | *    | 0x01,启用摄像头垂直镜像                                           |
+   | lcd_flip(1 byte)              | *    | 0x01,启用 lcd 水平翻转                                            |
+   | lcd_mirro(1 byte)             | *    | 0x01,启用 lcd 垂直镜像                                            |
+   | uartp_out_fea(1 byte)         | *    | 0x01,输出人脸信息                        |
+   | uartp_auto_out_fea(1 byte)    | *    | 0x01,自动输出人脸特征值                                        |
+   | uartp_en_stranger(1 byte)     | *    | 0x01,使能输出陌生人人脸信息                                    |
    | uartp_out_interval_ms(1 byte) | *    | 配置输出人脸信息间隔                                         |
 
 **示例**

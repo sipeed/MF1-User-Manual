@@ -22,7 +22,8 @@
 6. 烧录清除配置文件（或者使用 kflash_gui 清除板级配置信息）
 
 
-对应附件 > 点这里 [firmware](../firmware)
+MF 系列固件下载连接[Sipeed 文件下载站]: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Module](https://dl.sipeed.com/MAIX/factory_firmware/MF_Module)
+对应附件（图片，字体资源） > 点这里 [firmware](../firmware)
 
 固件为 `bin` 格式，烧录地址为 `0x0`
 
@@ -30,7 +31,7 @@
 
 ```shell
 .
-├── 2020_09_02-std_v113-0-ge976bea7 # 各个版本差异请看 [固件版本说明]
+├── 2020_10_31-std_v114-1-g52fd087b # 各个版本差异请看 [固件版本说明]
 │   ├── PROJ_MF1H_TO_MF2H_bin.bin
 │   ├── PROJ_MF1H_TO_MF2H_json.bin
 │   ├── PROJ_MF1H_bin.bin
@@ -52,7 +53,6 @@
 
 ## 固件版本说明
 
-MF 系列固件下载连接: [https://dl.sipeed.com/MAIX/factory_firmware/MF_Module](https://dl.sipeed.com/MAIX/factory_firmware/MF_Module)
 
 - 烧录固件时注意 区分摄像头方向
 
@@ -131,9 +131,9 @@ IO10(TX)， IO11(RX) 为协议串口，用户可以通过指令修改串口 IO
 
 ---
 
-推荐发送邮件格式如下:
+推荐发送邮件格式如下 （机器人自动回复一定要有字段 `机器码: [` xxxx `]`）:
 
-> 问题类型: 模型丢失/更换模型(两种情况请选择一个)
+> 问题类型: 生成模型文件
 >
 > 使用硬件/固件版本: MF0/MF1/MF1_TO_MF2(请填写实际板子型号)
 >
