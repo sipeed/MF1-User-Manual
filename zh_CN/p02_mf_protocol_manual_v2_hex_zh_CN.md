@@ -891,19 +891,19 @@ typedef enum
 
 2. arg=get_cfg,port_tx,port_rx,log_tx,log_rx,relay_pin,relay_pol,relay_opent,key_pin,key_pol
 
-   | arg                     | 取值 | 说明                                                         |
-| ----------------------- | ---- | ------------------------------------------------------------ |
+   | arg | 取值 | 说明 |
+   | ------ | ---- | ---- |
    | get_cfg(1 byte)         | *    | 当 get_cfg = 0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9<br />当 get_cfg != 0x01 时表示进行设置,模块回复设置结果,0x00表示成功,其他值为失败 |
-   | port_tx(1 byte)         | *    | 配置协议串口 TX IO                                           |
-   | port_rx(1 byte)         | *    | 配置协议串口 RX IO                                           |
-   | log_tx(1 byte)          | *    | 配置日志串口 TX IO                                           |
-   | log_rx(1 byte)          | *    | 配置日志串口 RX IO                                           |
-   | relay_pin(1 byte)       | *    | 配置继电器输出 IO                                            |
-   | relay_pol(1 byte)       | *    | 配置继电器极性                                               |
-   | relay_open_time(1 byte) | *    | 配置继电器开启时长, 单位 0.1S                                |
-   | key_pin(1 byte)         | *    | 配置功能按键 IO                                              |
-   | key_pol(1 byte)         | *    | 配置功能按键触发电平                                         |
-   | baud(4 baud)            | *    | baud rate 限制最大值为3M                                     |
+   | port_tx(1 byte) | *    | 配置协议串口 TX IO |
+   | port_rx(1 byte) | *    | 配置协议串口 RX IO |
+   | log_tx(1 byte) | *    | 配置日志串口 TX IO |
+   | log_rx(1 byte)          | *    | 配置日志串口 RX IO |
+   | relay_pin(1 byte)       | *    | 配置继电器输出 IO |
+   | relay_pol(1 byte)       | *    | 配置继电器极性 |
+   | relay_open_time(1 byte) | *    | 配置继电器开启时长, 单位 0.1S |
+   | key_pin(1 byte)         | *    | 配置功能按键 IO |
+   | key_pol(1 byte)         | *    | 配置功能按键触发电平 |
+   | baud(4 baud)            | *    | baud rate 限制最大值为3M |
 
 **示例**
 
@@ -919,13 +919,15 @@ typedef enum
 
 1. 设置串口图传功能
 
+> 配置图传指令之后，需重启设备才能生效
+
 2. arg=get_cfg(1B),tx(1B),baud(4B)
 
-   | arg             | 取值 | 说明                                                         |
-| --------------- | ---- | ------------------------------------------------------------ |
-   | get_cfg(1 byte) |      | 当 get_cfg=0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9<br />当 get_cfg!=0x01 时表示进行设置,模块回复设置结果,0x00表示成功,其他值为失败 |
-| tx(1 byte)      | *    | 配置图传串口 TX IO , tx 为`255`禁用图传功能                  |
-   | baud(4 baud)    | *    | baud rate 限制最大值为3M                                     |
+   | arg | 取值 | 说明 |
+   | --------------- | ---- | ------------------------------- |
+   | get_cfg(1 byte) | 0x00, 0x01 | 当 get_cfg=0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9<br />当 get_cfg!=0x01 时表示进行设置,模块回复设置结果,0x00表示成功,其他值为失败 |
+   | tx(1 byte)  | *    | 配置图传串口 TX IO , tx 为`255`禁用图传功能  |
+   | baud(4 baud)    | *    | baud rate 限制最大值为3M |
 
 **示例**
 
