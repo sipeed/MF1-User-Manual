@@ -867,13 +867,13 @@ typedef enum
    | arg                           | 取值 | 说明                                                         |
    | ----------------------------- | ---- | ------------------------------------------------------------ |
    | get_cfg(1 byte)               | *    | 当 get_cfg = 0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9<br />当 get_cfg != 0x01 时表示进行设置,模块回复设置结果,0x00表示成功,其他值为失败 |
-   | cam_flip(1 byte)              | *    | 0x01,启用摄像头水平翻转                                           |
-   | cam_mirror(1 byte)            | *    | 0x01,启用摄像头垂直镜像                                           |
-   | lcd_flip(1 byte)              | *    | 0x01,启用 lcd 水平翻转                                            |
-   | lcd_mirro(1 byte)             | *    | 0x01,启用 lcd 垂直镜像                                            |
-   | uartp_out_fea(1 byte)         | *    | 0x01,输出人脸信息                        |
-   | uartp_auto_out_fea(1 byte)    | *    | 0x01,自动输出人脸特征值                                        |
-   | uartp_en_stranger(1 byte)     | *    | 0x01,使能输出陌生人人脸信息                                    |
+   | cam_flip(1 byte)              | *    | 0x01: 启用摄像头水平翻转                                           |
+   | cam_mirror(1 byte)            | *    | 0x01: 启用摄像头垂直镜像                                           |
+   | lcd_flip(1 byte)              | *    | 0x01: 启用 lcd 水平翻转                                            |
+   | lcd_mirro(1 byte)             | *    | 0x01: 启用 lcd 垂直镜像                                            |
+   | uartp_out_fea(1 byte)         | 0x01, 0x02, 其他取值    | 0x01：输出存储在 flash 中的人脸特征值，分数,人脸 ID；</br> 0x02：输出实时的人脸特征值，人脸 ID；其他取值：只输出人脸 ID                        |
+   | uartp_auto_out_fea(1 byte)    | *    | 0x01：自动输出人脸特征值(陌生人，所以只输出人脸特征值)                                         |
+   | uartp_en_stranger(1 byte)     | *    | 0x01: 使能输出陌生人人脸信息                                    |
    | uartp_out_interval_ms(1 byte) | *    | 配置输出人脸信息间隔                                         |
 
 **示例**
