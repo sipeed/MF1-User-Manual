@@ -858,7 +858,8 @@ typedef enum
 
 1. 读取/设置软件配置
 
-2. arg=get_cfg,cam_flip,cam_mirror,lcd_flip,lcd_mirro,uartp_out_fea,uartp_auto_out_fea,uartp_en_stranger,uartp_en_stranger,uartp_out_interval_ms
+2. arg=get_cfg,cam_flip,cam_mirror,lcd_flip,lcd_mirro,uartp_out_fea,uartp_auto_out_fea,uartp_en_stranger,uartp_stranger_fea,uartp_out_interval_ms
+
 
    当 get_cfg = 0x01 时表示读取当前配置,模块回复的顺序与设置的参数一致,get_cfg为0xD9
 
@@ -872,14 +873,15 @@ typedef enum
    | lcd_flip(1 byte)              | *    | 0x01: 启用 lcd 水平翻转                                            |
    | lcd_mirro(1 byte)             | *    | 0x01: 启用 lcd 垂直镜像                                            |
    | uartp_out_fea(1 byte)         | 0x01, 0x02, 其他取值    | 0x01：输出存储在 flash 中的人脸特征值，分数,人脸 ID；</br> 0x02：输出实时的人脸特征值，人脸 ID；其他取值：只输出人脸 ID                        |
-   | uartp_auto_out_fea(1 byte)    | *    | 0x01：自动输出人脸特征值(陌生人，所以只输出人脸特征值)                                         |
+   | uartp_auto_out_fea(1 byte)    | *    | 0x01：自动输出人脸特征值                                         |
    | uartp_en_stranger(1 byte)     | *    | 0x01: 使能输出陌生人人脸信息                                    |
+   | uartp_stranger_fea(1 byte) | * | 0x01：输出陌生人人脸特征值 |
    | uartp_out_interval_ms(1 byte) | *    | 配置输出人脸信息间隔                                         |
 
 **示例**
 
    ```
-   发-> 24 24 11 00 FF FF 24 01 00 00 00 00 00 00 00 00 00
+   发-> 24 24 11 00 FF FF 24 00 01 00 00 00 01 00 00 00 64
    收-> 40 40 11 00 20 92 A4 D9 01 00 00 00 00 00 00 00 64
    ```
 
