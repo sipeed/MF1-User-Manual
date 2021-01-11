@@ -4,7 +4,7 @@
 
 MF Face Recognition Module User Manual
 
-
+- [`MF0` 模块简明用户手册](./zh_CN/MF0模块简明用户手册.md)
 - [`MF1` V1 模块简明用户手册](./zh_CN/m01_mf1_v1_get_started.md)
 - [`MF1` V2 模块简明用户手册](./zh_CN/m02_mf1_v2_get_started.md)
 - [`MF` 模块通用 HEX 协议](./zh_CN/p02_mf_protocol_manual_v2_hex_zh_CN.md)
