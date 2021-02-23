@@ -5,33 +5,32 @@
 MF Face Recognition Module User Manual
 
 
-- [`MF0` 模块简明用户手册](./zh_CN/mf0_get_started.md)
-- [`MF1` V1 模块简明用户手册](./zh_CN/m01_mf1_v1_get_started.md)
-- [`MF1` V2 模块简明用户手册](./zh_CN/m02_mf1_v2_get_started.md)
-- [`MF` 模块通用 HEX 协议](./zh_CN/p02_mf_protocol_manual_v2_hex_zh_CN.md)
-- [`MF` 模块通用 JSON 协议](./zh_CN/p03_mf_protocol_manual_v2_json_zh_CN.md)
-- [MF1 固件更新说明(与机器码 key 获取说明) ](./zh_CN/k01_update_firmware_and_get_key.md)
-- [MF Sipeed 串口调试助手使用说明](./zh_CN/t01_mf_sipeed_serail_port_tools.md)
+-[`MF0` Module Concise User Manual](./en_US/mf0_get_started_en_US.md)
+-[`MF1` V1 Module Concise User Manual](./en_US/m01_mf1_v1_get_started.md)
+-[`MF1` V2 Module Concise User Manual](./en_US/m02_mf1_v2_get_started.md)
+-[`MF` Module General HEX Protocol](./en_US/p02_mf_protocol_manual_v2_hex_en_US.md)
+-[`MF` Module General JSON Protocol](./en_US/p03_mf_protocol_manual_v2_json_en_US.md)
+-[MF1 firmware update instructions (and machine code key acquisition instructions)](./en_US/k01_update_firmware_and_get_key.md)
+-[MF Sipeed serial debugging assistant instructions for use](./en_US/t01_mf_sipeed_serail_port_tools.md)
 
 
-## 关于 MF 人脸识别模组
+## About MF face recognition module
 
-- 现有 MF 人脸识别模组
+- Existing MF face recognition module
 
-| 模组/开发板 | 说明 |
+| Module/Development Board | Description |
 | --- | --- |
-| MF0 | 核心板 |
-| MF1 | 1.3 寸 IPS 屏幕 |
-| MF1_TO_MF2 | MF1 外接 2.4/2.8寸屏幕 |
+| MF0 | Core Board |
+| MF1 | 1.3 inch IPS screen |
+| MF1_TO_MF2 | MF1 external 2.4/2.8 inch screen |
 | MF2 | 86 |
-| MF4 | 定制版 |
-| MF5 | 成品 |
-| MF5-QT 版 | |
+| MF4 | Customized version |
+| MF5 | Finished product |
+| MF5-QT version | |
 
-## MF 板型一览
+## MF board type list
 
-
-### MF1 旧版(V1)
+### MF1 old version (V1)
 
 ! The old version of the firmware function is no longer maintained
 
@@ -56,7 +55,7 @@ MF Face Recognition Module User Manual
 </table>
 
 
-### MF1 新版(V2)
+### MF1 New version(V2)
 
 <table border="1">
     <tr>
