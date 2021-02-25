@@ -48,12 +48,11 @@
 
 - 串口调试助手： [XCOM_V2.6.exe](./tools/serail_port_tools/XCOM\ V2.6.exe)
 
-![Sipeed MF 模块调试助手](../assets/tools/xcom.png)
-
+    ![Sipeed MF 模块调试助手](../assets/tools/xcom.png)
 
 - [Sipeed MF 模块调试助手](./tools/serail_port_tools/serail_tools_backen.7z)
 
-![Sipeed MF 模块调试助手](../assets/tools/sipeed_serail_tools_backen.png)
+    ![Sipeed MF 模块调试助手](../assets/tools/sipeed_serail_tools_backen.png)
 
 ## 硬件接口说明
 
@@ -102,10 +101,6 @@ MF1 模块预留两排 IO 接口，IO 接口描述如下：
     </tr>
 </table>
 
-
-
-
-
 ## 安装 USB 驱动
 
 `MF` 模块板载一颗 `CH552` 模拟 FT2232 串口功能，所以使用串口功能需要安装 `FT2232` 驱动
@@ -121,7 +116,9 @@ MF1 模块预留两排 IO 接口，IO 接口描述如下：
     <img src="../assets/get_started/win_drives_2.png" alt="打开设备管理器">
 
 2. 打开上一节的的链接下载驱动文件, 点击安装
+
     <img src="../assets/get_started/win_drives_3.png" alt="安装 FT2232 驱动">
+
     <img src="../assets/get_started/win_drives_5.gif" alt="安装 FT2232 驱动">
 
 4. 安装完成之后,可以在设备管理器看到已经识别到两个串口设备了(其中只有一个串口可用)

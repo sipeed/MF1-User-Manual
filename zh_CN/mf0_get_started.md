@@ -25,7 +25,7 @@
 
 ### 产品简介：
 
-`SipeedMF0`是Sipeed团队推出的一款人脸识别核心模块，SipeedMF0板载RISC-V高性能处理器，芯片集成KPU处理单元，可以进行多种AIOT开发。为了大家能快速进行人脸识别等应用的开发，Sipeed团队在此基础上开发人脸识别串口固件，使用HEX协议，方便STM32等通用MCU的快速对接。
+`Sipeed MF0` 是 Sipeed 团队推出的一款人脸识别核心模块，SipeedMF0板载RISC-V高性能处理器，芯片集成KPU处理单元，可以进行多种AIOT开发。为了大家能快速进行人脸识别等应用的开发，Sipeed 团队在此基础上开发人脸识别串口固件，使用HEX协议，方便STM32等通用MCU的快速对接。
 
 ### 外观一览：
 
@@ -288,4 +288,3 @@ MF0模块通过串口协议(HEX版)与MF0进行通信,(使用MF0的IO4(K210_RX)�
 **使用 kflash_gui 下载时，需要按下 boot 和 rst 按键，并先松开 rst 再松开 boot 按键，确保 K210 进入下载模式（ISP 模式）**
 
 ![](../assets/mf_module/mf0_upgrade_firmwave.png)
-

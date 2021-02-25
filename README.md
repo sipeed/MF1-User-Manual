@@ -5,12 +5,12 @@
 MF Face Recognition Module User Manual
 
 
--[`MF0` Module Concise User Manual](./en_US/mf0_get_started_en_US.md)
--[`MF1` V1 Module Concise User Manual](./en_US/m01_mf1_v1_get_started.md)
--[`MF1` V2 Module Concise User Manual](./en_US/m02_mf1_v2_get_started.md)
--[`MF` Module General HEX Protocol](./en_US/p02_mf_protocol_manual_v2_hex_en_US.md)
--[`MF` Module General JSON Protocol](./en_US/p03_mf_protocol_manual_v2_json_en_US.md)
--[MF1 firmware update instructions (and machine code key acquisition instructions)](./en_US/k01_update_firmware_and_get_key.md)
+- [`MF0` Module Concise User Manual](./en_US/mf0_get_started_en_US.md)
+- [`MF1` V1 Module Concise User Manual](./en_US/m01_mf1_v1_get_started.md)
+- [`MF1` V2 Module Concise User Manual](./en_US/m02_mf1_v2_get_started.md)
+- [`MF` Module General HEX Protocol](./en_US/p02_mf_protocol_manual_v2_hex_en_US.md)
+- [`MF` Module General JSON Protocol](./en_US/p03_mf_protocol_manual_v2_json_en_US.md)
+- [MF1 firmware update instructions (and machine code key acquisition instructions)](./en_US/k01_update_firmware_and_get_key.md)
 -[MF Sipeed serial debugging assistant instructions for use](./en_US/t01_mf_sipeed_serail_port_tools.md)
 
 
