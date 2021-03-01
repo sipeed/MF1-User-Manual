@@ -1,97 +1,92 @@
-# MF-User-Manual
+# `MF` 人脸识别模块简明用户手册
 
-[ English | [中文](./README_ZH.md)]
+[ [English](./README.md) | 中文]
 
-MF Face Recognition Module User Manual
+- [`MF1` V1 模块简明用户手册](./zh_CN/m01_mf1_v1_get_started.md)
+- [`MF1` V2 模块简明用户手册](./zh_CN/m02_mf1_v2_get_started.md)
+- [`MF` 模块通用 HEX 协议](./zh_CN/p02_mf_protocol_manual_v2_hex_zh_CN.md)
+- [`MF` 模块通用 JSON 协议](./zh_CN/p03_mf_protocol_manual_v2_json_zh_CN.md)
+- [MF1 固件更新说明（与机器码 key 获取说明）](./zh_CN/k01_update_firmware_and_get_key.md)
 
+## 关于 MF 人脸识别模组
 
-- [`MF0` Module Concise User Manual](./en_US/mf0_get_started_en_US.md)
-- [`MF1` V1 Module Concise User Manual](./en_US/m01_mf1_v1_get_started.md)
-- [`MF1` V2 Module Concise User Manual](./en_US/m02_mf1_v2_get_started.md)
-- [`MF` Module General HEX Protocol](./en_US/p02_mf_protocol_manual_v2_hex_en_US.md)
-- [`MF` Module General JSON Protocol](./en_US/p03_mf_protocol_manual_v2_json_en_US.md)
-- [MF1 firmware update instructions (and machine code key acquisition instructions)](./en_US/k01_update_firmware_and_get_key.md)
--[MF Sipeed serial debugging assistant instructions for use](./en_US/t01_mf_sipeed_serail_port_tools.md)
+- 现有 MF 人脸识别模组
 
-
-## About MF face recognition module
-
-- Existing MF face recognition module
-
-| Module/Development Board | Description |
+| 模组/开发板 | 说明 |
 | --- | --- |
-| MF0 | Core Board |
-| MF1 | 1.3 inch IPS screen |
-| MF1_TO_MF2 | MF1 external 2.4/2.8 inch screen |
+| MF0 | 核心板 |
+| MF1 | 1.3 寸 IPS 屏幕 |
+| MF1_TO_MF2 | MF1 外接 2.4/2.8寸屏幕 |
 | MF2 | 86 |
-| MF4 | Customized version |
-| MF5 | Finished product |
-| MF5-QT version | |
+| MF4 | 定制版 |
+| MF5 | 成品 |
+| MF5-QT 版 | |
 
-## MF board type list
+## MF 板型一览
 
-### MF1 old version (V1)
 
-! The old version of the firmware function is no longer maintained
+### MF1 旧版(V1)
+
+！旧版固件功能已不再继续维护
 
 <table border="1">
     <tr>
-        <th colspan=3>MF1(V1) </th>
+        <th colspan=3>MF1(V1) 版</th>
     </tr>
     <tr>
-        <td widtd="100">description</td>
-        <td >front view</td>
-        <td>Bottom view(with NAND) </td>
+        <td widtd="100">描述</td>
+        <td >正面视图</td>
+        <td>背面视图（带NAND）</td>
     </tr>
     <tr>
-        <td width="100">MF1 1.3' LCD</td>
+        <td width="100">MF1 1.3寸屏</td>
         <td>
-            <img src="./assets/mf_module/mf1_front_v1.png" height="250" alt="MF1 front view">
+            <img src="./assets/mf_module/mf1_front_v1.png" height="250" alt="MF1 正面">
         </td>
         <td>
-            <img src="./assets/mf_module/mf1_bottom_v1(nand).png" height="250" alt="MF1(NAND Flash) Bottom view">
+            <img src="./assets/mf_module/mf1_bottom_v1(nand).png" height="250" alt="MF1(NAND Flash) 背面视图">
         </td>
     </tr>
 </table>
 
 
-### MF1 New version(V2)
+### MF1 新版(V2)
 
 <table border="1">
     <tr>
-        <th colspan=4>MF1(V2)</th>
+        <th colspan=4>MF1(V2) 版</th>
     </tr>
     <tr>
-        <td  width="100">description</td>
-        <td>front view </td>
-        <td>Bottom view(without NAND) </td>
-        <td>Bottom view(with NAND) </td>
+        <td  width="100">描述</td>
+        <td>正面视图</td>
+        <td>背面视图（不带NAND）</td>
+        <td>背面视图（带NAND）</td>
     </tr>
     <tr>
-        <td width="100">MF1 1.3' LCD</td>
+        <td width="100">MF1 1.3寸屏</td>
         <td>
-            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 front view">
+            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 正面">
         </td>
         <td>
-            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 Bottom view">
+            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 背面视图">
         </td>
         <td>
-            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) Bottom view">
+            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) 背面视图">
         </td>
     </tr>
     <tr>
-        <td>MF1 TO MF2 2.4/2.8' LCD</td>
+        <td>MF1 TO MF2 2.4/2.8寸屏</td>
         <td>
-            <br> TODO: The picture is MF1 1.3', to be updated</br>
-            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 front view">
+            <br> TODO: 图片为 MF1 1.3',待更新</br>
+            <img src="./assets/mf_module/mf1_front_v2.png" width="600" alt="MF1 正面">
         </td>
         <td>
-            <br> TODO: The picture is MF1 1.3', to be updated</br>
-            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 Bottom view">
+            <br> TODO: 图片为 MF1 1.3',待更新</br>
+            <img src="./assets/mf_module/mf1_bottom_v2.png" width="600" alt="MF1 背面视图">
         </td>
         <td>
-            <br> TODO: The picture is MF1 1.3', to be updated</br>
-            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) Bottom view">
+            <br> TODO: 图片为 MF1 1.3',待更新</br>
+            <img src="./assets/mf_module/mf1_bottom_v2(nand).png" width="600" alt="MF1(NAND Flash) 背面视图">
         </td>
     </tr>
 </table>
