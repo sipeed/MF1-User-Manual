@@ -107,7 +107,7 @@ MF1 模块预留两排 IO 接口，IO 接口描述如下：
 
 用户可在  [**FTDI官网**](https://www.ftdichip.com/Drivers/VCP.htm)  下载驱动，请选择对应自己电脑操作系统的安装包
 
-- USB 驱动: **FT2232** ->[[下载链接点这里](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
+- USB 驱动: **FT2232** ->[下载链接点这里](https://dl.sipeed.com/MAIX/tools/ftdi_vcp_driver)
 
 1. 确认设备是否插入，及驱动是否安装
 
